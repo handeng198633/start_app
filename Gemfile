@@ -5,6 +5,8 @@ ruby '2.1.5'
 gem 'rails', '4.0.0'
 # Use sqlite3 as the database for Active Record
 
+gem 'bootstrap-sass', '2.3.2.0'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.10'
 	gem 'rspec-rails', '2.13.1'
@@ -17,7 +19,7 @@ end
 #gem 'sqlite3'
 
 # Use SCSS for stylesheets
-gem 'sass-rails', '4.0.0'
+gem 'sass-rails', '4.0.2'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '2.1.1'
 # Use CoffeeScript for .js.coffee assets and views
