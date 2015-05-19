@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
 	#call back and make all mail address downcase before saved
+	has_many :microposts, dependent: :destroy
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum:15 }
