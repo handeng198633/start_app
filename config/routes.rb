@@ -1,6 +1,7 @@
 StartApp::Application.routes.draw do
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :microposts, only: [:create, :destroy]
   #get "user/new"
   #get "static_pages/home"
   #match '/', to: 'static_pages#home', via: 'get'
