@@ -1,6 +1,9 @@
 class User < ActiveRecord::Base
 	#call back and make all mail address downcase before saved
 	has_many :microposts, dependent: :destroy
+	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
+	has_many :followed_users, through: :relationships, source: :followed
+
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum:15 }
@@ -25,6 +28,13 @@ class User < ActiveRecord::Base
 		Micropost.where("user_id = ?", id)
 	end
 
+	def following?(other_user)
+		
+	end
+
+	def follow!(other_user)
+		
+	end
 	private
 
 		def create_remember_token
