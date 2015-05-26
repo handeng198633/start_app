@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
 	validates :name, presence: true, length: { maximum:15 }
-	VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+	VALID_EMAIL_REGEX = /\A[\w+\-.]+@ansys.com/i
 	validates :email, presence: true, 
 					format: { with: VALID_EMAIL_REGEX }, 
 					uniqueness: { case_sensitive: false }
@@ -31,7 +32,7 @@ class User < ActiveRecord::Base
 	end
 
 	def feed
-		Micropost.where("user_id = ?", id)
+		Micropost.from_users_followed_by(self)
 	end
 
 	def following?(other_user)
