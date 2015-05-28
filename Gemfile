@@ -25,7 +25,8 @@ group :test do
 	gem 'factory_girl_rails', '4.2.1'
 end
 #gem 'sqlite3'
-
+gem "ckeditor"
+gem "paperclip"
 # Use SCSS for stylesheets
 gem 'sass-rails', '4.0.2'
 # Use Uglifier as compressor for JavaScript assets

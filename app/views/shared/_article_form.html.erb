@@ -1,0 +1,18 @@
+<%= form_for Article.new do |f| %>
+	<%= render 'shared/error_messages', object: f.object %>
+	<div>
+    	<%= f.label :title %>
+  	</div>
+  	<div>
+    	<%= f.text_field :title, placeholder: "Compose new article title..." %>
+  	</div>
+  	<div>
+    	<%= f.label :content %>
+  	</div>
+  	<div>
+    	<%= f.cktext_area :content, rows: 10 %>
+  	</div>
+  	<div>
+	<%= f.submit "Post", class: "btn btn-large btn-primary" %>
+	</div>
+<% end %>

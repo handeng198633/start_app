@@ -3,7 +3,7 @@ require 'spec_helper'
 describe User do
 	before do
 		@user = User.new(name: "Example User", 
-						email: "user@example.com",
+						email: "user@ansys.com",
 						password: "handeng",
 						password_confirmation: "handeng")
 	end
@@ -19,6 +19,7 @@ describe User do
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
 	it { should respond_to(:microposts) }
+	it { should respond_to(:articles) }
 	it { should respond_to(:feed) }
 	it { should respond_to(:relationships) }
 	it { should respond_to(:followed_users) }

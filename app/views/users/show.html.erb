@@ -13,12 +13,12 @@
 	</aside>
 	<div class="span8">
 		<%= render 'follow_form' if signed_in? %>
-		<% if @user.microposts.any? %>
-			<h3>Microposts (<%= @user.microposts.count %>)</h3>
-			<ol class="microposts">
-				<%= render @microposts %>
+		<% if @user.articles.any? %>
+			<h3>Micropost (<%= @user.articles.count %>)</h3>
+			<ol class="articles">
+				<%= render @articles %>
 			</ol>
-			<%= will_paginate @microposts %>
+			<%= will_paginate @articles %>
 		<% end %>
 	</div>
 </div>

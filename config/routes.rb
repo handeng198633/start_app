@@ -1,4 +1,5 @@
 StartApp::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   resources :users do
     member do
       get :following, :followers
@@ -7,6 +8,7 @@ StartApp::Application.routes.draw do
 
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
+  resources :articles, only: [:create, :edit, :update, :destroy]
   resources :relationships, only: [:create, :destroy]
   #get "user/new"
   #get "static_pages/home"

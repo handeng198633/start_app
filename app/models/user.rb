@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	#call back and make all mail address downcase before saved
 	has_many :microposts, dependent: :destroy
+	has_many :articles, dependent: :destroy
 
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 	has_many :followed_users, through: :relationships, source: :followed
@@ -32,7 +33,7 @@ class User < ActiveRecord::Base
 	end
 
 	def feed
-		Micropost.from_users_followed_by(self)
+		Article.from_users_followed_by(self)
 	end
 
 	def following?(other_user)

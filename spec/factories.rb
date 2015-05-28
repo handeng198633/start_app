@@ -1,7 +1,7 @@
 FactoryGirl.define do
 	factory :user do
 		sequence(:name) { |n| "Person #{n}" }
-		sequence(:email) { |n| "person_#{n}@example.com"}
+		sequence(:email) { |n| "person_#{n}@ansys.com"}
 		password "foobar"
 		password_confirmation "foobar"
 		factory :admin do
@@ -11,6 +11,12 @@ FactoryGirl.define do
 
 	factory :micropost do
 		content "Lorem ipsum"
+		user
+	end
+
+	factory :article do
+		title "Article test"
+		content "Deng Han"
 		user
 	end
 end
