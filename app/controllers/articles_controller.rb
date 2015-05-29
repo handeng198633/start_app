@@ -1,14 +1,14 @@
 class ArticlesController < ApplicationController
-	before_action :signed_in_user, only: [:create, :edit, :update, :destory]
+	before_action :signed_in_user, only: [:index, :create, :edit, :update, :destory]
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
-#		@articles = Article.order("created_at DESC")
+		@articles = Article.paginate(page: params[:page])
 	end
 
-#	def show
-#    	@article = Article.find(params[:id])
-#    end
+	def show
+    	@article = Article.find(params[:id])
+    end
 
     def new
        @article = Article.new

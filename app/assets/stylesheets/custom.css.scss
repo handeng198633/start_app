@@ -3,6 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
+$LightBlue:#0000A0;
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
 
@@ -223,7 +224,12 @@ border-top: 1px solid #e8e8e8;
 }
 .content {
 display: block;
+height: 50px;
 }
+.userprofile {
+color: $LightBlue;
+}
+
 .timestamp {
 color: $grayLight;
 }
