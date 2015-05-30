@@ -48,6 +48,13 @@ font-weight: normal;
 color: $grayLight;
 }
 
+h6 {
+font-size: 1.2em;
+margin-bottom: 30px;
+text-align: right;
+font-weight: normal;
+}
+
 p {
 font-size: 1.1em;
 line-height: 1.7em;
@@ -129,10 +136,11 @@ border: 0;
 padding-top: 0;
 }
 span {
-display: block;
 margin-bottom: 3px;
 line-height: 1;
 }
+
+
 h1 {
 font-size: 1.4em;
 text-align: left;
