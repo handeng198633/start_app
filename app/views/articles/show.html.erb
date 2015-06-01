@@ -18,8 +18,8 @@
 		<aside class = "rightbutton">
 			<h6>
 				<% if current_user?(@article.user) %>
-				    <%= link_to "edit", edit_article_path(@article), data: { confirm: "You  Sure?" }, title: @article.title %>
-					<%= link_to "delete", @article, method: :delete, data: { confirm: "You Sure?" }, title: @article.title %>
+				    <%= link_to "Edit", edit_article_path(@article), data: { confirm: "You  Sure?" }, title: @article.title, class: "btn btn-large btn-primary" %>
+					<%= link_to "Delete", @article, method: :delete, data: { confirm: "You Sure?" }, title: @article.title, class: "btn btn-large btn-primary" %>
 				<% end %>
 			</h6>
 	    </aside>
