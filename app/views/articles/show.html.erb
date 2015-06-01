@@ -1,7 +1,7 @@
 <% provide(:title, @article.title) %>
 
 <div class = "row">
-	<aside class = "span4">
+	<aside class = "span2">
 		<section>
 			<h1>
 	<%= gravatar_for @article.user %>
@@ -12,14 +12,16 @@
 			<%= render 'shared/stats' %>
 		</section>
 	</aside>
-	<aside class = "span8">
-		<h1><%= @article.title %></h1>
-		<h2><%= @article.content %></h2>
+	<aside class = "span10">
+		<h1><%= @article.title.html_safe %></h1>
+		<h2><%= @article.content.html_safe %></h2>
 		<aside class = "rightbutton">
-			<h6><% if current_user?(@article.user) %>
-			    <%= link_to "edit", edit_article_path(@article), data: { confirm: "You  Sure?" }, title: @article.title %>
-				<%= link_to "delete", @article, method: :delete, data: { confirm: "You Sure?" }, title: @article.title %>
-			<% end %><h6>
+			<h6>
+				<% if current_user?(@article.user) %>
+				    <%= link_to "edit", edit_article_path(@article), data: { confirm: "You  Sure?" }, title: @article.title %>
+					<%= link_to "delete", @article, method: :delete, data: { confirm: "You Sure?" }, title: @article.title %>
+				<% end %>
+			</h6>
 	    </aside>
 	</aside>
 	
