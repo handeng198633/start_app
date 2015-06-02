@@ -1,17 +1,17 @@
 <% provide(:title, 'Edit micropost') %>
 <div class = "row">
-<h1>Update your micropost</h1>
-		<%= form_for(@article) do |f| %>
-			<%= render 'shared/error_messages', object: f.object %>
+		<h1>Update your micropost</h1>
+				<%= form_for(@article) do |f| %>
+					<%= render 'shared/error_messages', object: f.object %>
 
-    			<%= f.label :title %>
-    			<%= f.text_field :title, placeholder: "Compose new article title..." %>
+		    			<%= f.label :title %>
+		    			<%= f.text_field :title, placeholder: "Compose new article title..." %>
 
-    			<%= f.label :content %>
-    			<%= f.cktext_area :content, rows: 10 %>
+		    			<%= f.label :content %>
+		    			<%= f.cktext_area :content, rows: 10 %>
 
-			
-			<%= f.submit "Save", class: "btn btn-large btn-primary" %>
-			<%= link_to "Exit", article_path(@article), class: "btn btn-large btn-primary" %>
-		<% end %>
+					
+					<%= f.submit "Save", class: "btn btn-large btn-primary" %>
+					<%= link_to "Exit", article_path(@article), class: "btn btn-large btn-primary" %>
+				<% end %>
 </div>

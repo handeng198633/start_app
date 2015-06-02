@@ -19,12 +19,10 @@
 	</div>
 <% else %>
 	<div class="center hero-unit">
-		<%= link_to image_tag("zen_logo.png", alt: "Apache"), "https://www.apache-da.com/" ,class: "btn btn-large" %>
+		<%= link_to image_tag("zen_logo.png", alt: "Apache", size: "400"), "https://www.apache-da.com/" %>
 		<h2>
 			Web tools for QA team
 		</h2>
 		<%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
 	</div>
-	<%= link_to image_tag("logo.gif", alt: "ANSYS"), 'http://www.ansys.com/' %>
-	<%= link_to image_tag("rails.png", alt: "Rails"), 'http://rubyonrails.org/' %>
 <% end %>

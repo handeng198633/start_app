@@ -6,7 +6,10 @@
 $LightBlue:#0000A0;
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
-
+#full-row{
+  max-width: 1920px;
+  margin: 0px auto;
+}
 /* universal */
 html {
 overflow-y: scroll;
