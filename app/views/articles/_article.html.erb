@@ -8,7 +8,7 @@
 	Posted <%= time_ago_in_words(article.created_at) %> ago.
 	</span>
 	<% if current_user?(article.user) %>
-	    <%= link_to "edit", edit_article_path(article), data: { confirm: "You  Sure?" }, title: article.title %>
+	    <%= link_to "edit", edit_article_path(article), data: { confirm: "You Sure?" }, title: article.title %>
 		<%= link_to "delete", article, method: :delete, data: { confirm: "You Sure?" }, title: article.title %>
 	<% end %>
 </li>
