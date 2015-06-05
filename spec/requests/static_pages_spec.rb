@@ -7,11 +7,11 @@ describe "StaticPages" do
 		before {visit root_path}
 
 		it {should have_content('Apache Design')}
-		it {should have_title("Ruby on Rails Start App")}
-		it {should_not have_title('| Home')}
+		it {should have_title("Apache design, Inc.")}
+		it {should have_title('Home')}
 #		it "should have the content 'Start App'" do
 #			expect(page).to have_content('Start App')
-#		end
+#		end 
 #		it "should have the right title" do
 #			expect(page).to have_title("Ruby on Rails Start App")
 #		end
@@ -22,15 +22,15 @@ describe "StaticPages" do
 		describe "for signed-in users" do
 			let(:user) { FactoryGirl.create(:user)}
 			before do
-				FactoryGirl.create(:micropost, user: user, content: "Lorem ipsum")
-				FactoryGirl.create(:micropost, user: user, content: "Dolor sit amet")
+				FactoryGirl.create(:article, user: user, title: "Lorem ipsum", content: "Content test 1")
+				FactoryGirl.create(:article, user: user, title: "Dolor sit amet", content: "Content test 2")
 				sign_in user
 				visit root_path
 			end
 
 			it "should render the user's feed" do
 				user.feed.each do |item|
-					expect(page).to have_selector("li##{item.id}", text: item.content)
+					expect(page).to have_selector("li##{item.id}", text: item.title)
 				end
 			end
 
@@ -50,7 +50,7 @@ describe "StaticPages" do
 	describe "Help page" do
 		before {visit help_path}
 		it {should have_content('Help')}
-		it {should have_title("Ruby on Rails Start App")}
+		it {should have_title("Apache design, Inc.")}
 #		it "should have the content 'Help'" do
 #			visit help_path
 #			expect(page).to have_content('Help')
@@ -66,13 +66,13 @@ describe "StaticPages" do
 	describe "About page" do
 		before {visit about_path}
 		it {should have_content('About')}
-		it {should have_title("Ruby on Rails Start App")}
+		it {should have_title("Apache design, Inc.")}
 	end
 
 	describe "Contact page" do
 		before {visit contact_path}
 		it {should have_content('Contact')}
-		it {should have_title("Ruby on Rails Start App")}
+		it {should have_title("Apache design, Inc.")}
 	end
 
 end

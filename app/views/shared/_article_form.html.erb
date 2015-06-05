@@ -1,15 +1,15 @@
-<%= form_for Article.new do |f| %>
+<%= form_for(@article) do |f| %>
 	<%= render 'shared/error_messages', object: f.object %>
-	<div>
+	  <div>
     	<%= f.label :title %>
   	</div>
-  	<div>
+  	<div class="field">
     	<%= f.text_field :title, placeholder: "Compose new article title..." %>
   	</div>
-  	<div>
+  	<div >
     	<%= f.label :content %>
   	</div>
-  	<div>
+  	<div class="field">
     	<%= f.cktext_area :content, rows: 10 %>
   	</div>
   	<div>

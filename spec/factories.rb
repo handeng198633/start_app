@@ -16,7 +16,7 @@ FactoryGirl.define do
 
 	factory :article do
 		title "Article test"
-		content "Deng Han"
+		content 'Article test'
 		user
 	end
 end

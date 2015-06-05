@@ -18,7 +18,6 @@ describe User do
 	it { should respond_to(:remember_token)}
 	it { should respond_to(:authenticate) }
 	it { should respond_to(:admin) }
-	it { should respond_to(:microposts) }
 	it { should respond_to(:articles) }
 	it { should respond_to(:feed) }
 	it { should respond_to(:relationships) }
@@ -68,7 +67,7 @@ describe User do
 
 	describe "when email format is invalid" do
 		it "should be invalid" do
-			addresses = %w[user@foo.COM A_US-ER@f.b.org frst.lst@foo.jp a+b@baz.cn]
+			addresses = %w[user@ansys.com A_US-ER@ansys.com frst.lst@ansys.com a+b@ansys.com]
 			addresses.each do |invalid_address|
 				@user.email = invalid_address
 				expect(@user).to be_valid
@@ -127,46 +126,46 @@ describe User do
 		its(:remember_token) {should_not be_blank}
 	end
 
-	describe "microposts associations" do
+	describe "articles associations" do
 
 		before { @user.save }
-		let!(:older_micropost) do
-			FactoryGirl.create(:micropost, user: @user, created_at: 1.day.ago)
+		let!(:older_article) do
+			FactoryGirl.create(:article, user: @user, created_at: 1.day.ago)
 		end
-		let!(:newer_micropost) do
-			FactoryGirl.create(:micropost, user: @user, created_at: 1.hour.ago)
-		end
-
-		it "should have the right microposts in the right order" do
-			expect(@user.microposts.to_a).to eq [newer_micropost, older_micropost]
+		let!(:newer_article) do
+			FactoryGirl.create(:article, user: @user, created_at: 1.hour.ago)
 		end
 
-		it "should destroy associated microposts" do
-			microposts = @user.microposts.to_a
+		it "should have the right articles in the right order" do
+			expect(@user.articles.to_a).to eq [newer_article, older_article]
+		end
+
+		it "should destroy associated articles" do
+			articles = @user.articles.to_a
 			@user.destroy
-			expect(microposts).not_to be_empty
-			microposts.each do |micropost|
-				expect(Micropost.where(id: micropost.id)).to be_empty
+			expect(articles).not_to be_empty
+			articles.each do |article|
+				expect(Article.where(id: article.id)).to be_empty
 			end
 		end
 
 		describe "status" do
 			let(:unfollowed_post) do
-				FactoryGirl.create(:micropost, user: FactoryGirl.create(:user))
+				FactoryGirl.create(:article, user: FactoryGirl.create(:user))
 			end
 
 			let(:followed_user) { FactoryGirl.create(:user) }
 			before do
 				@user.follow!(followed_user)
-				3.times { followed_user.microposts.create!(content: "Lorem ipsum") }
+				3.times { followed_user.articles.create!(title:"Test", content: 'Lorem ipsum') }
 			end  
 
-			its(:feed) { should include(newer_micropost) }
-			its(:feed) { should include(older_micropost) }
+			its(:feed) { should include(newer_article) }
+			its(:feed) { should include(older_article) }
 			its(:feed) { should_not include(unfollowed_post) }
 			its(:feed) do
-				followed_user.microposts.each do |micropost|
-					should include(micropost)
+				followed_user.articles.each do |article|
+					should include(article)
 				end
 			end
 		end
