@@ -6,9 +6,10 @@ StartApp::Application.routes.draw do
     end
   end
 
+  resources :articles
+
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
-  resources :articles
   resources :relationships, only: [:create, :destroy]
   #get "user/new"
   #get "static_pages/home"

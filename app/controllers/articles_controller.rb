@@ -2,6 +2,19 @@ class ArticlesController < ApplicationController
 	before_action :signed_in_user, only: [:index, :create, :edit, :update, :destory]
 	before_action :correct_user, only: [:edit, :update, :destroy]
 
+	def searchindex
+		@articles = Article.reindex
+		article_outs = Article.search(input_str), 
+		                     order: {_score: :desc}, 
+		                       limit: 20, 
+		                         offset: 40, 
+		                           page: params[:page], 
+		                             per_page: 20
+		article_outs.each do |article|
+			puts article
+		end
+	end
+
 	def index
 		@articles = Article.paginate(page: params[:page])
 	end
