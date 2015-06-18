@@ -1,4 +1,5 @@
 StartApp::Application.routes.draw do
+  get "password_resets/new"
   mount Ckeditor::Engine => '/ckeditor'
   resources :users do
     member do
@@ -11,6 +12,8 @@ StartApp::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :microposts, only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]
+
+  resources :password_resets
   #get "user/new"
   #get "static_pages/home"
   #match '/', to: 'static_pages#home', via: 'get'

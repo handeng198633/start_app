@@ -13,6 +13,7 @@ class User < ActiveRecord::Base
 
 	before_save { self.email = email.downcase }
 	before_create :create_remember_token
+
 	validates :name, presence: true, length: { maximum:15 }
 	#VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@ansys.com/i
@@ -22,7 +23,14 @@ class User < ActiveRecord::Base
 
 #all about password secure is add to :has_secure_password	
 	has_secure_password
-	validates :password, length:{ minimum: 6, maximum: 20 }
+	validates :password, length:{ maximum: 20 }
+
+	def send_password_reset
+		self.password_reset_token = User.encrypt(User.new_remember_token)
+		self.password_reset_sent_at = Time.zone.now
+		save!
+		UserMailer.password_reset(self).deliver
+	end
 
 	def User.new_remember_token
 		SecureRandom.urlsafe_base64

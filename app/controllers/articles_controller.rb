@@ -4,15 +4,15 @@ class ArticlesController < ApplicationController
 
 	def searchindex
 		@articles = Article.reindex
-		article_outs = Article.search(input_str), 
-		                     order: {_score: :desc}, 
-		                       limit: 20, 
-		                         offset: 40, 
-		                           page: params[:page], 
-		                             per_page: 20
-		article_outs.each do |article|
-			puts article
-		end
+#		article_outs = Article.search(input_str), 
+#		                     order: {_score: :desc}, 
+#		                       limit: 20, 
+#		                         offset: 40, 
+#		                           page: params[:page], 
+#		                             per_page: 20
+#		article_outs.each do |article|
+#			puts article
+#		end
 	end
 
 	def index
