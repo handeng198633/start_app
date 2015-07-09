@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150618015120) do
+ActiveRecord::Schema.define(version: 20150703032203) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -58,6 +58,25 @@ ActiveRecord::Schema.define(version: 20150618015120) do
   add_index "relationships", ["followed_id"], name: "index_relationships_on_followed_id"
   add_index "relationships", ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
   add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id"
+
+  create_table "sqajobs", force: true do |t|
+    t.string   "jobname"
+    t.text     "case_group"
+    t.string   "gversion"
+    t.string   "nversion"
+    t.string   "gbuild"
+    t.string   "nbuild"
+    t.string   "gsrfile"
+    t.string   "genv"
+    t.string   "nenv"
+    t.string   "case_list_file"
+    t.integer  "slotthread"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sqajobs", ["user_id", "created_at"], name: "index_sqajobs_on_user_id_and_created_at"
 
   create_table "users", force: true do |t|
     t.string   "name"

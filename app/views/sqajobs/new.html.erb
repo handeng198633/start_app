@@ -1,0 +1,224 @@
+<% provide(:title, 'Sqa add') %>
+<div class="row">
+	<div class="span10 offset1">
+		<h1>Create Special QA Job</h1>
+		<%= form_for(@sqajob) do |f| %>
+			<%= render 'shared/error_messages', object: f.object %>
+			<h2 class = "sub-header">Select Version&Build</h2>
+				<div class="row">
+					<aside class = "span1">
+						<h5 class = "sub-header">Golden</h5>
+					</aside>
+					<aside class = "span2">
+						<%= f.label :gversion, "Version" %>
+						<%= f.select(:gversion, [['rd', 'rd'], ['15.1', '15.1'], ['14.2', '14.2']]) %>
+					</aside>
+					<aside class = "span7">
+						<%= f.label :gbuild, "Build" %>
+						<%= f.text_field :gbuild %>
+					</aside>
+				</div>
+				<div class="row">
+					<aside class = "span1">
+						<h4 class = "sub-header">New *</h4>
+					</aside>
+					<aside class = "span2">
+						<%= f.label :nversion, "Version" %>
+						<%= f.select(:nversion, [['rd', 'rd'], ['15.1', '15.1'], ['14.2', '14.2']]) %>
+					</aside>
+					<aside class = "span7">
+						<%= f.label :nbuild, "Build" %>
+						<%= f.text_field :nbuild %>
+				</aside>
+				</div>
+
+				<div class="row">
+				<aside class = "span1">
+						<h5 class = "sub-header">Choose</h5>
+				</aside>	
+				<aside class = "span2">
+
+					<%= f.label :slotthread, "Thread" %>
+					<%= f.select(:slotthread, [['5 ', 5], ['4', 4], ['3', 3], ['2', 2], ['1', 1]]) %>
+				</aside>
+				</div>
+
+			<h2 class = "sub-header">Select Globle Variable</h2>
+				<div class="row">
+					<aside class = "span1">
+						<h5 class = "sub-header">Golden</h5>
+				   </aside>
+					<aside class = "span9">
+						<%= f.label :genv, "Globle Variable" %>
+						<%= f.text_field :genv %>
+					</aside>
+				</div>
+				<div class="row">
+					<aside class = "span1">
+						<h5 class = "sub-header">New</h5>
+				   </aside>
+				  <aside class = "span9">
+					<%= f.label :nenv, "Globle Variable" %>
+					<%= f.text_field :nenv %>
+					</aside>
+				</div>
+
+			<h2 class = "sub-header">Select GSR File</h2>
+			<div class="row">
+				<aside class = "span1">
+						<h5 class = "sub-header">GSR</h5>
+				   </aside>
+				<aside class = "span9">
+				<%= f.label :gsrfile, "File" %>
+				<%= f.text_field :gsrfile %>
+				</aside>
+			</div>
+
+			<h2 class = "sub-header">Select Case Group</h2>
+			<div class="row">
+				<aside class = "span1">
+						<h3 class = "sub-header">Case Group *</h3>
+				   </aside>
+				<aside class = "span9">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						</tbody>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "CPM", nil) %><%= label_tag(:cpm, "CPM") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "DSR", nil ) %><%= label_tag(:dsr, "DSR") %>
+								</td>
+								<td>	
+									<%= f.check_box(:case_group, {:multiple => "true"}, "HC", nil ) %><%= label_tag(:hc, "HC") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "Rhe_NX", nil) %><%= label_tag(:rhe_nx, "Rhe_NX") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "SSR", nil) %><%= label_tag(:ssr, "SSR") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "dmp", nil) %><%= label_tag(:db, "dmp") %>
+								</td>	
+							</tr>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "TMsignalEM", nil) %><%= label_tag(:tmsignalem, "TMsignalEM") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "accuracy", nil) %><%= label_tag(:accuracy, "accuracy") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "ace", nil) %><%= label_tag(:ace, "ace") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "apl", nil) %><%= label_tag(:apl, "apl") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "aplmmx", nil) %><%= label_tag(:aplmmx, "aplmmx") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "db", nil) %><%= label_tag(:db, "db") %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "dynamic", nil) %><%= label_tag(:dynamic, "dynamic") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "esd", nil) %><%= label_tag(:esd, "esd") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "fao", nil) %><%= label_tag(:fao, "fao") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "gds2db", nil) %><%= label_tag(:gds2db, "gds2db") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "gds2df", nil) %><%= label_tag(:gds2df, "gds2df") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "gds2rh", nil) %><%= label_tag(:gds2rh, "gds2rh") %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "gdsmmx", nil) %><%= label_tag(:gdsmmx, "gdsmmx") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "hier", nil) %><%= label_tag(:hier, "hier") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "low_power", nil) %><%= label_tag(:low_power, "low_power") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "mmx", nil) %><%= label_tag(:mmx, "mmx") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "nxSEM", nil) %><%= label_tag(:nxsem, "nxSEM") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "power", nil) %><%= label_tag(:power, "power") %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "powerEm", nil) %><%= label_tag(:powerem, "powerEm") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "psiClkJitter", nil) %><%= label_tag(:psiclkjitter, "psiClkJitter") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "psiClktree", nil) %><%= label_tag(:psiclktree, "psiClktree") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "psiWinder", nil) %><%= label_tag(:psiwinder, "psiWinder") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "rhtech", nil) %><%= label_tag(:rhtech, "rhtech") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "static", nil) %><%= label_tag(:static, "static") %>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "substrate", nil) %><%= label_tag(:substrate, "substrate") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "tclCmd", nil) %><%= label_tag(:tclcmd, "tclCmd") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "tclquery", nil) %><%= label_tag(:tclquery, "tclquery") %>
+								</td>
+								<td>
+									<%= f.check_box(:case_group, {:multiple => "true"}, "vcd", nil) %><%= label_tag(:vcd, "vcd") %>
+								</td>
+
+							<tr>
+						</tbody>
+					</table>
+				</div>
+				</aside>
+			</div>
+
+			<h2 class = "sub-header">Select Case List File</h2>
+			<div class="row">
+				<aside class = "span1">
+						<h5 class = "sub-header">List</h5>
+				   </aside>
+				<aside class = "span9">
+				<%= f.label :case_list_file, "File" %>
+				<%= f.text_field :case_list_file %>
+				</aside>
+			</div>
+			<div class="row">
+				<aside class = "span8 offset4">
+					<%= f.submit "Create", class: "btn btn-large btn-primary" %>
+				</aside>
+			</div>
+		<% end %>
+	</div>
+</div>

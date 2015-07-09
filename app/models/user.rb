@@ -2,6 +2,7 @@ class User < ActiveRecord::Base
 	#call back and make all mail address downcase before saved
 	has_many :microposts, dependent: :destroy
 	has_many :articles, dependent: :destroy
+	has_many :sqajobs, dependent: :destroy
 
 	has_many :relationships, foreign_key: "follower_id", dependent: :destroy
 	has_many :followed_users, through: :relationships, source: :followed
@@ -19,7 +20,7 @@ class User < ActiveRecord::Base
 	VALID_EMAIL_REGEX = /\A[\w+\-.]+@ansys.com/i
 	validates :email, presence: true, 
 					format: { with: VALID_EMAIL_REGEX }, 
-					uniqueness: { case_sensitive: false }
+					uniqueness: { case_sensitive: false, message:"Email address must end with ansys.com" }
 
 #all about password secure is add to :has_secure_password	
 	has_secure_password

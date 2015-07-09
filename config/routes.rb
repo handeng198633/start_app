@@ -6,7 +6,7 @@ StartApp::Application.routes.draw do
       get :following, :followers
     end
   end
-
+  resources :sqajobs
   resources :articles
 
   resources :sessions, only: [:new, :create, :destroy]

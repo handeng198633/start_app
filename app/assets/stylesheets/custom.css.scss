@@ -3,9 +3,12 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import "bootstrap";
+
+
 $LightBlue:#0000A0;
 $lightGray: #999;
 $grayMediumLight: #eaeaea;
+$red: #FF0000;
 #full-row{
   max-width: 1920px;
   margin: 0px auto;
@@ -30,6 +33,11 @@ text-align: center;
 	}
 }
 
+input, textarea, select, .uneditable-input {
+	
+padding: 1px;	
+}
+
 /* typography */
 h1, h2, h3, h4, h5, h6 {
 line-height: 1;
@@ -49,6 +57,32 @@ margin-bottom: 30px;
 text-align: center;
 font-weight: normal;
 color: $grayLight;
+}
+
+h3 {
+font-size: 1.2em;
+margin-bottom: 30px;
+padding: 0px 0px;
+text-align: left;
+font-weight: normal;
+color: $red;
+}
+
+h4 {
+font-size: 1.2em;
+margin-bottom: 30px;
+padding: 20px 0px;
+text-align: left;
+font-weight: normal;
+color: $red;
+}
+
+h5 {
+font-size: 1.2em;
+margin-bottom: 30px;
+padding: 20px 0px;
+text-align: left;
+font-weight: normal;
 }
 
 h6 {
@@ -205,7 +239,7 @@ margin: 1px 1px;
 input, textarea, select, .uneditable-input {
 border: 1px solid #bbb;
 width: 100%;
-padding: 10px;
+padding: 1px 10px 1px;
 margin-bottom: 15px;
 @include box_sizing;
 }
@@ -275,6 +309,32 @@ list-style: none;
 margin: 10px 0 0 0;
 li {
 padding: 10px 0;
+border-top: 1px solid #e8e8e8;
+}
+}
+.title {
+display: block;
+}
+
+.timestamp {
+color: $grayLight;
+}
+.gravatar {
+float: left;
+margin-right: 10px;
+}
+aside {
+textarea {
+height: 100px;
+margin-bottom: 5px;
+}
+}
+
+.sqajob {
+list-style: none;
+margin: 10px 0 0 0;
+li {
+padding: 1px 0;
 border-top: 1px solid #e8e8e8;
 }
 }
