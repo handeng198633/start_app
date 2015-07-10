@@ -49,7 +49,7 @@
 						<h5 class = "sub-header">Golden</h5>
 				   </aside>
 					<aside class = "span9">
-						<%= f.label :genv, "Globle Variable" %>
+						<%= f.label :genv, "Globle Variable(e.g: UQA_MTH_RELOAD=1;UQA_ONE_SIR=1)" %>
 						<%= f.text_field :genv %>
 					</aside>
 				</div>
@@ -58,7 +58,7 @@
 						<h5 class = "sub-header">New</h5>
 				   </aside>
 				  <aside class = "span9">
-					<%= f.label :nenv, "Globle Variable" %>
+					<%= f.label :nenv, "Globle Variable(the same as above)" %>
 					<%= f.text_field :nenv %>
 					</aside>
 				</div>
@@ -216,7 +216,7 @@
 			</div>
 			<div class="row">
 				<aside class = "span8 offset4">
-					<%= f.submit "Create", class: "btn btn-large btn-primary" %>
+					<%= f.submit "Create", data: { confirm: "Sure all information?" }, class: "btn btn-large btn-primary" %>
 				</aside>
 			</div>
 		<% end %>

@@ -41,7 +41,7 @@ end
 
 #class CasegroupValidator < ActiveModel::EachValidator
 #	def validate_each(record, attribute, value)
-#		if attribute[0].nil?
+#		unless 
 #			record.errors[attribute] << (options[:message] || "can not be blank!")
 #		end
 #	end
@@ -51,14 +51,17 @@ class Sqajob < ActiveRecord::Base
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
 
+	serialize :case_group, Array
+
+	validates :case_group, presence: true
 	validates :gversion, presence: true 
 	validates :nversion, presence: true
-	validates :gbuild, presence: true, gbuild: true, allow_blank: true
-	validates :nbuild, presence: true, nbuild: true
-	validates :gsrfile, presence: true, file: true, allow_blank: true
-	validates :genv, presence: true, env: true, allow_blank: true
-	validates :nenv, presence: true, env: true, allow_blank: true
-	validates :case_list_file, presence: true, file: true, allow_blank: true
+	validates :gbuild, presence: true#, gbuild: true, allow_blank: true
+	validates :nbuild, presence: true#, nbuild: true, allow_blank: true
+	validates :gsrfile, presence: true#, file: true, allow_blank: true
+	validates :genv, presence: true#, env: true, allow_blank: true
+	validates :nenv, presence: true#, env: true, allow_blank: true
+	validates :case_list_file, presence: true#, file: true, allow_blank: true
 	validates :slotthread, presence: true
 	validates :user_id, presence: true
 

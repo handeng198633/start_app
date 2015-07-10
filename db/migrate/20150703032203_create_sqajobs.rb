@@ -1,4 +1,5 @@
 class CreateSqajobs < ActiveRecord::Migration
+
   def change
     create_table :sqajobs do |t|
       t.string :jobname
