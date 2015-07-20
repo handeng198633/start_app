@@ -1,5 +1,5 @@
 <% provide(:title, "Special QA Jobs Details") %>
-<h1>Special QA Job Details</h1>
+
 <div class = "row">
 
 	<aside class = "span3">
@@ -15,6 +15,7 @@
 		</section>
 	</aside>
 	<aside class = "span9">
+		<h1>Special QA Job Details</h1>
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
@@ -22,7 +23,7 @@
 						<h7>Test Case Group *</h7>
 					</td>
 					<td>
-						<h2><%= @sqajob.case_group %></h2>
+						<h9><%= @sqajob.case_group.join(" | ").html_safe %></h9>
 					</td>
 				</tr>
 				<tr>
@@ -30,7 +31,7 @@
 						<h8>Test Case List File</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.case_list_file.html_safe %></h2>
+						<h10><%= @sqajob.case_list_file.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -38,7 +39,7 @@
 						<h8>Gold Version</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.gversion.html_safe %></h2>
+						<h10><%= @sqajob.gversion.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -46,7 +47,7 @@
 						<h8>Gold Build</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.gbuild.html_safe %></h2>
+						<h10><%= @sqajob.gbuild.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -54,7 +55,7 @@
 						<h7>New Version *</h7>
 					</td>
 					<td>
-						<h2><%= @sqajob.nversion.html_safe %></h2>
+						<h9><%= @sqajob.nversion.html_safe %></h9>
 					</td>
 				</tr>
 				<tr>
@@ -62,7 +63,7 @@
 						<h7>New Build *</h7>
 					</td>
 					<td>
-						<h2><%= @sqajob.nbuild.html_safe %></h2>
+						<h9><%= @sqajob.nbuild.html_safe %></h9>
 					</td>
 				</tr>
 				<tr>
@@ -70,7 +71,7 @@
 						<h8>Muiltithread</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.slotthread %></h2>
+						<h10><%= @sqajob.slotthread.to_s.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -78,7 +79,7 @@
 						<h8>GSR File</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.gsrfile.html_safe %></h2>
+						<h10><%= @sqajob.gsrfile.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -86,7 +87,7 @@
 						<h8>Golden Variable</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.genv.html_safe %></h2>
+						<h10><%= @sqajob.genv.html_safe %></h10>
 					</td>
 				</tr>
 				<tr>
@@ -94,20 +95,20 @@
 						<h8>New Variable</h8>
 					</td>
 					<td>
-						<h2><%= @sqajob.nenv.html_safe %></h2>
+						<h10><%= @sqajob.nenv.html_safe %></h10>
 					</td>
 				</tr>
 			</table>
-		<div>
-
-		<aside class = "rightbutton">
+		</div>
+		
+		<div class = "rightbutton">
 			<h6>
 				<% if current_user?(@sqajob.user) %>
-					<%= link_to "Run", '#', class: "btn btn-large btn-success" %>
+					<%= render 'runsqajob_form' %>
 					<%= link_to "Delete", @sqajob, method: :delete, data: { confirm: "You Sure?" }, class: "btn btn-large btn-warning" %>
 				<% end %>
 			</h6>
-	    </aside>
+	    </div>
 	</aside>
 	
 	

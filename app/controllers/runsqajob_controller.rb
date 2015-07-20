@@ -1,0 +1,3 @@
+class RunsqajobController < ApplicationController
+
+end

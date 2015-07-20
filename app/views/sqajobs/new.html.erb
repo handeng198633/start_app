@@ -4,7 +4,7 @@
 		<h1>Create Special QA Job</h1>
 		<%= form_for(@sqajob) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
-			<h2 class = "sub-header">Select Version&Build</h2>
+
 				<div class="row">
 					<aside class = "span1">
 						<h5 class = "sub-header">Golden</h5>
@@ -43,7 +43,6 @@
 				</aside>
 				</div>
 
-			<h2 class = "sub-header">Select Globle Variable</h2>
 				<div class="row">
 					<aside class = "span1">
 						<h5 class = "sub-header">Golden</h5>
@@ -63,7 +62,6 @@
 					</aside>
 				</div>
 
-			<h2 class = "sub-header">Select GSR File</h2>
 			<div class="row">
 				<aside class = "span1">
 						<h5 class = "sub-header">GSR</h5>
@@ -74,7 +72,6 @@
 				</aside>
 			</div>
 
-			<h2 class = "sub-header">Select Case Group</h2>
 			<div class="row">
 				<aside class = "span1">
 						<h3 class = "sub-header">Case Group *</h3>
@@ -204,13 +201,12 @@
 				</aside>
 			</div>
 
-			<h2 class = "sub-header">Select Case List File</h2>
 			<div class="row">
 				<aside class = "span1">
-						<h5 class = "sub-header">List</h5>
+						<h5 class = "sub-header">Case List</h5>
 				   </aside>
 				<aside class = "span9">
-				<%= f.label :case_list_file, "File" %>
+				<%= f.label :case_list_file, "Test Cast List File" %>
 				<%= f.text_field :case_list_file %>
 				</aside>
 			</div>

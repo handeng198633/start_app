@@ -1,0 +1,8 @@
+<div id="runsqajob_form">
+	<% if running?(@sqajob.jobname) %>
+			<%= render 'sqajobprogress'%>
+			<%= render 'sqajobstop' %>
+	<% else %>
+			<%= render 'sqajobrun' %>
+	<% end %>
+</div>

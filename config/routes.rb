@@ -7,6 +7,8 @@ StartApp::Application.routes.draw do
     end
   end
   resources :sqajobs
+#  resources :runsqajob, only: [:run, :stop]
+
   resources :articles
 
   resources :sessions, only: [:new, :create, :destroy]

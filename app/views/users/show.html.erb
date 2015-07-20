@@ -6,6 +6,7 @@
 	<%= gravatar_for @user %>
 	<%= @user.name %>
 			</h1>
+	<%= @user.email %>
 		</section>
 		<section>
 			<%= render 'shared/stats' %>
@@ -14,7 +15,7 @@
 	<div class="span8">
 		<%= render 'follow_form' if signed_in? %>
 		<% if @user.articles.any? %>
-			<h3>Micropost (<%= @user.articles.count %>)</h3>
+			<h3>Article (<%= @user.articles.count %>)</h3>
 			<ol class="articles">
 				<%= render @articles %>
 			</ol>

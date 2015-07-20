@@ -44,7 +44,7 @@ line-height: 1;
 }
 
 h1 {
-font-size: 3em;
+font-size: 2.5em;
 letter-spacing: -2px;
 margin-bottom: 30px;
 text-align: center;
@@ -94,19 +94,35 @@ font-weight: normal;
 
 h7 {
 font-size: 1.2em;
-margin-bottom: 30px;
-text-align: left;
-font-weight: normal;
+margin-bottom: 3px;
+text-align: center;
 font-weight: bold;
 color: $red;
 }
 
 h8 {
 font-size: 1.2em;
-margin-bottom: 30px;
-text-align: left;
+margin-bottom: 3px;
+text-align: center;
 font-weight: normal;
 font-weight: bold;
+}
+
+h9 {
+font-size: 1.2em;
+letter-spacing: -1px;
+margin-bottom: 3px;
+text-align: center;
+color: $grayLight;
+}
+
+h10 {
+font-size: 1.2em;
+letter-spacing: -1px;
+margin-bottom: 3px;
+text-align: center;
+font-weight: normal;
+color: $grayLight;
 }
 
 p {
