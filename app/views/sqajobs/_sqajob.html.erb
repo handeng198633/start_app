@@ -1,0 +1,13 @@
+<li>
+	<%= gravatar_for sqajob.user, size: 52 %>
+	<%= link_to sqajob.user.name, sqajob.user %>
+	<span class="content">
+	<%= link_to sqajob.jobname, sqajob %>
+	</span>
+	<span class="timestamp">
+	Posted <%= time_ago_in_words(sqajob.created_at) %> ago.
+	</span>
+	<% if current_user?(sqajob.user) %>
+		<%= link_to "delete", sqajob, method: :delete, data: { confirm: "You Sure?" }, title: sqajob.jobname %>
+	<% end %>
+</li>

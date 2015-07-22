@@ -1,0 +1,10 @@
+<% provide(:title, 'All SqaJobs') %>
+<h1>All Special QA Jobs</h1>
+
+<%= will_paginate %>
+<div class = "row">
+	<ul class="users">
+		<%= render @sqajobs %>
+	</ul>
+</div>
+<%= will_paginate %>

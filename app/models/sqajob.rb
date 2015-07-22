@@ -52,7 +52,7 @@ class Sqajob < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 
 	serialize :case_group, Array
-
+	validates :jobname, presence: true
 	validates :case_group, presence: true
 	validates :gversion, presence: true 
 	validates :nversion, presence: true

@@ -3,7 +3,7 @@ class SqajobsController < ApplicationController
 	before_action :correct_user, only: [:create, :destroy]
 
 	def index
-		@sqajob = Sqajob.paginate(page: params[:page])	
+		@sqajobs = Sqajob.paginate(page: params[:page])
 	end
 
 	def show
@@ -16,6 +16,7 @@ class SqajobsController < ApplicationController
 
 	def create
 		@sqajob = current_user.sqajobs.build(sqajob_params)
+		@sqajob.jobname = current_user.name.downcase + '_' + @sqajob.created_at
 		if @sqajob.save
 			flash[:success] = "Special QA job created"
 			redirect_to @sqajob
