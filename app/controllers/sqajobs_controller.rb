@@ -1,6 +1,6 @@
 class SqajobsController < ApplicationController
 	before_action :signed_in_user, only: [:index, :create, :edit, :update, :destory]
-	before_action :correct_user, only: [:create, :destroy]
+	before_action :correct_user, only: [:destroy]
 
 	def index
 		@sqajobs = Sqajob.paginate(page: params[:page])
@@ -16,7 +16,8 @@ class SqajobsController < ApplicationController
 
 	def create
 		@sqajob = current_user.sqajobs.build(sqajob_params)
-		@sqajob.jobname = current_user.name.downcase + '_' + @sqajob.created_at
+		jobname = 'SQJ' + '_' + current_user.name + '_' + Time.now.to_s(:number) 
+		@sqajob.jobname = jobname
 		if @sqajob.save
 			flash[:success] = "Special QA job created"
 			redirect_to @sqajob
@@ -34,8 +35,9 @@ class SqajobsController < ApplicationController
 	private
 
 		def sqajob_params
-			params.require(:sqajob).permit(:gversion, {:case_group => []}, :nversion, :gbuild, :nbuild, :gsrfile, :genv, :nenv, :case_list_file, :slotthread)
+			params.require(:sqajob).permit(:jobname, :gversion, {:case_group => []}, :nversion, :gbuild, :nbuild, :gsrfile, :genv, :nenv, :case_list_file, :slotthread)
 		end
+
 		def correct_user
 			@sqajob = current_user.sqajobs.find_by(id: params[:id])
 			redirect_to root_url if @sqajob.nil?

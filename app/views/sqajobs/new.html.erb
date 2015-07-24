@@ -1,6 +1,6 @@
 <% provide(:title, 'Sqa add') %>
 <div class="row">
-	<div class="span10 offset1">
+	<div class="span9 offset3">
 		<h1>Create Special QA Job</h1>
 		<%= form_for(@sqajob) do |f| %>
 			<%= render 'shared/error_messages', object: f.object %>
@@ -13,7 +13,7 @@
 						<%= f.label :gversion, "Version" %>
 						<%= f.select(:gversion, [['rd', 'rd'], ['15.1', '15.1'], ['14.2', '14.2']]) %>
 					</aside>
-					<aside class = "span7">
+					<aside class = "span6">
 						<%= f.label :gbuild, "Build" %>
 						<%= f.text_field :gbuild %>
 					</aside>
@@ -26,7 +26,7 @@
 						<%= f.label :nversion, "Version" %>
 						<%= f.select(:nversion, [['rd', 'rd'], ['15.1', '15.1'], ['14.2', '14.2']]) %>
 					</aside>
-					<aside class = "span7">
+					<aside class = "span6">
 						<%= f.label :nbuild, "Build" %>
 						<%= f.text_field :nbuild %>
 				</aside>
@@ -47,7 +47,7 @@
 					<aside class = "span1">
 						<h5 class = "sub-header">Golden</h5>
 				   </aside>
-					<aside class = "span9">
+					<aside class = "span8">
 						<%= f.label :genv, "Globle Variable(e.g: UQA_MTH_RELOAD=1;UQA_ONE_SIR=1)" %>
 						<%= f.text_field :genv %>
 					</aside>
@@ -56,7 +56,7 @@
 					<aside class = "span1">
 						<h5 class = "sub-header">New</h5>
 				   </aside>
-				  <aside class = "span9">
+				  <aside class = "span8">
 					<%= f.label :nenv, "Globle Variable(the same as above)" %>
 					<%= f.text_field :nenv %>
 					</aside>
@@ -66,7 +66,7 @@
 				<aside class = "span1">
 						<h5 class = "sub-header">GSR</h5>
 				   </aside>
-				<aside class = "span9">
+				<aside class = "span8">
 				<%= f.label :gsrfile, "File" %>
 				<%= f.text_field :gsrfile %>
 				</aside>
@@ -76,7 +76,7 @@
 				<aside class = "span1">
 						<h3 class = "sub-header">Case Group *</h3>
 				   </aside>
-				<aside class = "span9">
+				<aside class = "span8">
 				<div class="table-responsive">
 					<table class="table table-striped">
 						</tbody>
@@ -205,13 +205,13 @@
 				<aside class = "span1">
 						<h5 class = "sub-header">Case List</h5>
 				   </aside>
-				<aside class = "span9">
+				<aside class = "span8">
 				<%= f.label :case_list_file, "Test Cast List File" %>
 				<%= f.text_field :case_list_file %>
 				</aside>
 			</div>
 			<div class="row">
-				<aside class = "span9 offset4">
+				<aside class = "span9 offset3">
 					<%= f.submit "Create", data: { confirm: "Sure all information?" }, class: "btn btn-large btn-primary" %>
 					<%= link_to "Back", root_path, class: "btn btn-large btn-primary" %>
 				</aside>

@@ -52,16 +52,16 @@ class Sqajob < ActiveRecord::Base
 	default_scope -> { order('created_at DESC') }
 
 	serialize :case_group, Array
-	validates :jobname, presence: true
+	validates :jobname, presence: true, allow_blank: true
 	validates :case_group, presence: true
 	validates :gversion, presence: true 
 	validates :nversion, presence: true
-	validates :gbuild, presence: true#, gbuild: true, allow_blank: true
-	validates :nbuild, presence: true#, nbuild: true, allow_blank: true
-	validates :gsrfile, presence: true#, file: true, allow_blank: true
-	validates :genv, presence: true#, env: true, allow_blank: true
-	validates :nenv, presence: true#, env: true, allow_blank: true
-	validates :case_list_file, presence: true#, file: true, allow_blank: true
+	validates :gbuild, presence: true, gbuild: true, allow_blank: true
+	validates :nbuild, presence: true #nbuild: true
+	validates :gsrfile, presence: true, file: true, allow_blank: true
+	validates :genv, presence: true, env: true, allow_blank: true
+	validates :nenv, presence: true, env: true, allow_blank: true
+	validates :case_list_file, presence: true, file: true, allow_blank: true
 	validates :slotthread, presence: true
 	validates :user_id, presence: true
 

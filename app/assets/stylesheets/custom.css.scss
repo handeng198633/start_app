@@ -4,6 +4,29 @@
 
 @import "bootstrap";
 
+.container {
+    width: 1170px;
+}
+.navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+	width: 1170px;
+}
+
+ .hero-unit {
+  height: 100%;
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  text-align: center;
+  vertical-align: middle;
+  color: inherit;
+  background-image: url("pattern.png");
+  background-color: #3C3C3C;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+}
 
 $LightBlue:#0000A0;
 $lightGray: #999;
@@ -56,7 +79,7 @@ letter-spacing: -1px;
 margin-bottom: 30px;
 text-align: center;
 font-weight: normal;
-color: $grayLight;
+color: #FFF;
 }
 
 h3 {
