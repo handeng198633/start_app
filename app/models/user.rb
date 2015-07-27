@@ -45,6 +45,10 @@ class User < ActiveRecord::Base
 		Article.from_users_followed_by(self)
 	end
 
+	def feedsqajob
+		Sqajob.where("user_id = ?", id)
+	end
+
 	def following?(other_user)
 		relationships.find_by(followed_id: other_user.id)
 	end

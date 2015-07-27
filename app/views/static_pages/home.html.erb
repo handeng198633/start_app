@@ -14,8 +14,23 @@
 			</section>
 		</aside>
 		<div class="span5">
-			<h1>Feed</h1>
-			<%= render 'shared/feed' %>
+			<div class="section-title">
+				<span class="title">
+					Feed
+				</span>
+			</div>
+			<div class="section" style="height: auto;">
+				<%= render 'shared/feed' %>
+			</div>
+			<div class="section-title">
+				<span class="title">
+					Jobs
+				</span>
+			</div>
+			<div class="section" style="height: auto;">
+				<%= render 'shared/job' %>
+			</div>
+
 		</div>
 	</div>
 <% else %>

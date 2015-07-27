@@ -1,0 +1,6 @@
+<% if @feed_jobs.any? %>
+	<ol class="sqajobs">
+		<%= render partial: 'shared/feed_job', collection: @feed_jobs %>
+	</ol>
+	<%= will_paginate @feed_items %>
+<% end %>

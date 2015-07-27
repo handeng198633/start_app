@@ -65,4 +65,5 @@ class Sqajob < ActiveRecord::Base
 	validates :slotthread, presence: true
 	validates :user_id, presence: true
 
+
 end

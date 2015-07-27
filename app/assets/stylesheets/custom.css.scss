@@ -42,6 +42,7 @@ overflow-y: scroll;
 }
 body {
 padding-top: 70px;
+background-color: #FCFCFC;
 }
 section {
 overflow: auto;
@@ -360,7 +361,7 @@ margin-bottom: 5px;
 }
 
 /* article */
-.article {
+.articles {
 list-style: none;
 margin: 10px 0 0 0;
 li {
@@ -377,8 +378,9 @@ color: $grayLight;
 }
 .gravatar {
 float: left;
-margin-right: 10px;
+margin-right: 8px;
 }
+
 aside {
 textarea {
 height: 100px;
@@ -386,7 +388,8 @@ margin-bottom: 5px;
 }
 }
 
-.sqajob {
+/* sqajob */
+.sqajobs {
 list-style: none;
 margin: 10px 0 0 0;
 li {
@@ -399,15 +402,41 @@ display: block;
 }
 
 .timestamp {
-color: $grayLight;
+color: #272727;
 }
 .gravatar {
 float: left;
-margin-right: 10px;
+margin-right: 5px;
 }
 aside {
 textarea {
 height: 100px;
 margin-bottom: 5px;
 }
+}
+.section {
+    background-color: #FFF;
+    text-transform: none;
+}
+
+.section-title {
+    background-color: #333;
+    text-transform: uppercase;
+    position: relative;
+    margin: 3px;
+        margin-top: 3px;
+        margin-right: 3px;
+        margin-bottom: 3px;
+        margin-left: 3px;
+
+
+.title {
+    font-family: Helvetica;
+    letter-spacing: 2px;
+    font-size: 16px;
+    margin-left: 20px;
+    line-height: 40px;
+    vertical-align: bottom;
+    color: #FFF;
+    }
 }
