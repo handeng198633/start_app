@@ -4,8 +4,8 @@ class StaticPagesController < ApplicationController
   	if signed_in?
     @sqajob = current_user.sqajobs.build
     @article = current_user.articles.build
-		@feed_items = current_user.feed.paginate(page: params[:page])
-    @feed_jobs =current_user.feedsqajob.paginate(page: params[:page])
+		@feed_items = current_user.feed.paginate(page: params[:page], :per_page => 3)
+    @feed_jobs =current_user.feedsqajob.paginate(page: params[:page], :per_page => 5)
 	end
   end
 

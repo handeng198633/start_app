@@ -3,7 +3,7 @@ class SqajobsController < ApplicationController
 	before_action :correct_user, only: [:destroy]
 
 	def index
-		@sqajobs = Sqajob.paginate(page: params[:page])
+		@sqajobs = Sqajob.paginate(page: params[:page],:per_page => 10 )
 	end
 
 	def show

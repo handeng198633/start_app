@@ -11,7 +11,7 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'bcrypt'
 gem 'faker', '1.1.2'
 
-gem 'will_paginate', '3.0.4'
+gem 'will_paginate'
 gem 'bootstrap-will_paginate', '0.0.9'
 
 group :development, :test do

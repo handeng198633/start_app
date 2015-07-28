@@ -8,5 +8,7 @@
 	<%= link_to "view my profile", current_user %>
 </span>
 <span>
-	<%= pluralize(current_user.articles.count, "article") %>
+	<%= pluralize(current_user.articles.count, "Article") %>
+	<h7>|</h7>
+	<%= pluralize(current_user.sqajobs.count, "Special QA jobs") %>
 </span>
