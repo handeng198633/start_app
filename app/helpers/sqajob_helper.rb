@@ -7,7 +7,7 @@ module SqajobHelper
 			#if stdout =~ //i 
 			#	return true
 			#end
-		return true
+		return false
 	end
 
 	def run_sqajob
