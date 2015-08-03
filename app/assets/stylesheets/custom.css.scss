@@ -16,12 +16,9 @@
   padding: 60px;
   margin-bottom: 30px;
   font-size: 18px;
-  font-weight: 200;
   line-height: 30px;
   text-align: center;
-  vertical-align: middle;
-  color: inherit;
-  background-image: url("pattern.png");
+  background-image: url("pattern1.png");
   background-color: #3C3C3C;
   -webkit-border-radius: 6px;
      -moz-border-radius: 6px;
@@ -40,10 +37,12 @@ $red: #FF0000;
 html {
 overflow-y: scroll;
 }
+
 body {
 padding-top: 70px;
 background-color: #FCFCFC;
 }
+
 section {
 overflow: auto;
 }
