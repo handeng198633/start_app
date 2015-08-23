@@ -33,7 +33,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(user_params)
   	if @user.save
-      sign_in @user
+#      sign_in @user
+      log_in @user
       flash[:success] = "Welcome to the Ruby On Rails!"
       redirect_to root_url
   	else
