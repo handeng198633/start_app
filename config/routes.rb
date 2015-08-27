@@ -6,6 +6,8 @@ StartApp::Application.routes.draw do
       get :following, :followers
     end
   end
+  resources :account_activations, only: [:edit]
+
   resources :sqajobs
 #  resources :runsqajob, only: [:run, :stop]
 
@@ -23,6 +25,7 @@ StartApp::Application.routes.draw do
 
   match '/signup', to: 'users#new', via: 'get'
   match '/signin', to: 'sessions#new', via: 'get'
+  match '/signin', to: 'sessions#create', via: 'post'
   match '/signout', to: 'sessions#destroy', via: 'delete'
   #get "static_pages/help"
   match '/help', to: 'static_pages#help', via: 'get'

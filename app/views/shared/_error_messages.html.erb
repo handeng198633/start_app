@@ -7,7 +7,7 @@
 		<ul>
 		<% object.errors.full_messages.each do |msg| %>
 			<% if msg == "Email is invalid" %>
-				<% msg += ", email address must end with @ansys.com" %>
+				<% msg += ", [Apache ID]@ansys.com, e.g hdeng@ansys.com" %>
 			<% end %>
 			<li>* <%= msg %></li>
 		<% end %>

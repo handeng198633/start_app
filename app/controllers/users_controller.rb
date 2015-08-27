@@ -34,6 +34,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
 #      sign_in @user
+      account_activation_mail(@user)
       log_in @user
       flash[:success] = "Welcome to the Ruby On Rails!"
       redirect_to root_url

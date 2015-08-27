@@ -7,8 +7,11 @@ gem 'rails', '4.0.0'
 
 gem 'bootstrap-sass', '2.3.2.0'
 #hash function for password
-gem 'bcrypt-ruby', '~> 3.0.0'
-gem 'bcrypt'
+#gem 'bcrypt-ruby', '3.0.1'
+gem 'bcrypt', '3.1.10'
+gem 'bcrypt-ruby', '3.0.1'
+#gem 'bcrypt-ruby'
+
 gem 'faker', '1.1.2'
 
 gem 'will_paginate'
@@ -65,6 +68,8 @@ group :production do
 	gem 'pg', '0.15.1'
 	gem 'rails_12factor', '0.0.2'
 end
+
+gem 'execjs'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
