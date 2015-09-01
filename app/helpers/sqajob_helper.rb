@@ -12,6 +12,7 @@ module SqajobHelper
 
 	def run_sqajob
 		@sqajob = current_user.sqajobs.find_by(id: params[:id])
+
 #		respond_to do |format|
 #			format.html { redirect_to @sqajob }
 #			format.js

@@ -49,7 +49,6 @@ end
 
 class Sqajob < ActiveRecord::Base
 	belongs_to :user
-	default_scope -> { order('created_at DESC') }
 
 	serialize :case_group, Array
 	validates :jobname, presence: true, allow_blank: true
