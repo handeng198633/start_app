@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150823051425) do
+ActiveRecord::Schema.define(version: 20150906030806) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -74,9 +74,17 @@ ActiveRecord::Schema.define(version: 20150823051425) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "job_state",      default: "notrun"
+    t.datetime "starttime"
   end
 
   add_index "sqajobs", ["user_id", "created_at"], name: "index_sqajobs_on_user_id_and_created_at"
+
+  create_table "sqajobstatuses", force: true do |t|
+    t.integer  "sqajob_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "name"

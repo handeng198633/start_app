@@ -9,7 +9,7 @@ StartApp::Application.routes.draw do
   resources :account_activations, only: [:edit]
 
   resources :sqajobs
-#  resources :runsqajob, only: [:run, :stop]
+  resources :sqajobstatuses
 
   resources :articles
 

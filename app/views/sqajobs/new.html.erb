@@ -79,7 +79,7 @@
 				<aside class = "span8">
 				<div class="table-responsive">
 					<table class="table table-striped">
-						</tbody>
+						<tbody>
 							<tr>
 								<td>
 									<%= f.check_box(:case_group, {:multiple => "true"}, "CPM", nil) %><%= label_tag(:cpm, "CPM") %>
@@ -195,6 +195,31 @@
 								</td>
 
 							<tr>
+						</tbody>
+					</table>
+				</div>
+				</aside>
+			</div>
+
+			<div class="row">
+				<aside class = "span1">
+						<h3 class = "sub-header">Case Group *</h3>
+				   </aside>
+				<aside class = "span8">
+				<div class="table-responsive">
+					<table class="table table-striped">
+						<tbody>
+							<% File.open("#{Rails.root}/public/casegroup.txt", "r") do |file| %>
+								<% while line = file.gets %>
+									<tr>
+									<% line.gsub(/\s+/,'').split(',').each do |group| %>
+										<td>
+											<%= f.check_box(:case_group, {:multiple => "true"}, group, nil) %><%= label_tag(:rhe_nx, group) %>
+										</td>
+									<% end %>
+									</tr>
+								<% end %>
+							<% end %>
 						</tbody>
 					</table>
 				</div>

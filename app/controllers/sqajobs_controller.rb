@@ -1,6 +1,6 @@
 class SqajobsController < ApplicationController
-	before_action :signed_in_user, only: [:index, :create, :edit, :update, :destory]
-	before_action :correct_user, only: [:destroy]
+	before_action :signed_in_user, only: [:index, :create, :edit, :new, :show]
+	before_action :correct_user, only: [:update, :destroy]
 
 	def index
 		@sqajobs = Sqajob.paginate(page: params[:page],:per_page => 10 )
@@ -12,6 +12,10 @@ class SqajobsController < ApplicationController
 
 	def new
 		@sqajob = Sqajob.new
+	end
+
+	def update
+		
 	end
 
 	def create

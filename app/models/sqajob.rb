@@ -48,6 +48,8 @@ end
 #end
 
 class Sqajob < ActiveRecord::Base
+	has_many :sqajobstatuses, dependent: :destroy
+
 	belongs_to :user
 
 	serialize :case_group, Array
@@ -63,6 +65,7 @@ class Sqajob < ActiveRecord::Base
 	validates :case_list_file, presence: true, file: true, allow_blank: true
 	validates :slotthread, presence: true
 	validates :user_id, presence: true
+	validates :job_state, presence: true
 
 	def self.from_users_followed_by(user)
 		#insert SQL in database level
@@ -70,5 +73,12 @@ class Sqajob < ActiveRecord::Base
 		#where("user_id IN (?) OR user_id = ?", followed_user_ids, user)
 		where("user_id IN (#{followed_user_ids}) OR user_id = :user_id", user_id: user.id)
 	end
+
+	def updatejobstate(string)
+		update_attribute(:job_state, string)
+		update_attribute(:starttime, Time.zone.now)
+	end
+
+
 
 end
