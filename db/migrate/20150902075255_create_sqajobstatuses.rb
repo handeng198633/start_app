@@ -5,5 +5,6 @@ class CreateSqajobstatuses < ActiveRecord::Migration
 
       t.timestamps
     end
+  add_index :sqajobstatuses, [:sqajob_id, :created_at]
   end
 end

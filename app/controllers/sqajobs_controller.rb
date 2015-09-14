@@ -36,6 +36,7 @@ class SqajobsController < ApplicationController
 		redirect_to root_url
 	end
 
+
 	private
 
 		def sqajob_params

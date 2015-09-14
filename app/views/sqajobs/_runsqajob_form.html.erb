@@ -1,9 +1,52 @@
-<div id="runsqajob_form">
-	<% if running?(@sqajob) == "notrun" %>
-			<%= render 'sqajobrun' %>
-	<% elsif running?(@sqajob) == "running" %>
-			<%= render 'sqajobrunning' %>
-	<% elsif running?(@sqajob) == "rundone" %>
-			<%= render 'sqajobrundone' %>
-	<% end %>
+<div class = "row">
+	<aside class = "span3/2 offset4">
+			<div id="runsqajob_form">
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+						<%= render 'sqajobrun' %>
+				<% elsif running?(@sqajob) == "running" %>
+						<%= render 'sqajobrunning' %>
+				<% elsif running?(@sqajob) == "rundone" %>
+						<%= render 'sqajobrun' %>
+				<% end %>
+			</div>
+	</aside>
+	<aside class = "span3/2">
+			<div id="stopsqajob_form">
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+						<%= render 'sqajobdisablestop' %>
+				<% elsif running?(@sqajob) == "running" %>
+						<%= render 'sqajobstop' %>
+				<% elsif running?(@sqajob) == "rundone" %>
+						<%= render 'sqajobdisablestop' %>
+				<% end %>
+			</div>
+	</aside>
+	<aside class = "span3/2">
+			<div id="logsqajob_form">
+				<% if running?(@sqajob) == "notrun" %>
+						<%= render 'sqajobdisablelog' %>
+				<% else %>
+						<%= render 'sqajoblog' %>
+				<% end %>
+			</div>
+	</aside>
+
+	<aside class = "span3/2">
+			<div id="resultsqajob_form">
+				<% if running?(@sqajob) == "rundone" %>
+						<%= render 'sqajobresult' %>
+				<% else %>
+						<%= render 'sqajobdisableresult' %>
+				<% end %>
+			</div>
+	</aside>
+
+	<aside class = "span1">
+			<%= link_to "Del", @sqajob, method: :delete, data: { confirm: "You Sure?" }, class: "btn btn-large btn-warning" %>
+	</aside>
+</div>
+<div class = "row">
+	<aside class = "span10 offset1">
+			<%= render 'run_sqajob_detail' %>
+	</aside>
 </div>

@@ -100,16 +100,18 @@
 				</tr>
 			</table>
 		</div>
+
 		
-		<div class = "rightbutton">
-			<h6>
-				<% if current_user?(@sqajob.user) %>
-					<%= render 'runsqajob_form' %>
-					<%= link_to "Delete", @sqajob, method: :delete, data: { confirm: "You Sure?" }, class: "btn btn-warning" %>
-				<% end %>
-			</h6>
-	    </div>
 	</aside>
 	
-	
+</div>
+
+<div class = "row">
+	<aside class = "span11 offset1">
+	<h6>
+		<% if current_user?(@sqajob.user) %>
+			<%= render 'runsqajob_form' %>
+		<% end %>
+	</h6>
+	</aside>
 </div>

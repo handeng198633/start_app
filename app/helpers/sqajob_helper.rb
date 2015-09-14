@@ -12,6 +12,8 @@ module SqajobHelper
 				return "notrun"
 			elsif @sqajob.job_state == "running"
 				return "running"
+			elsif @sqajob.job_state == "stopped"
+				return "stopped"
 			elsif @sqajob.job_state == "rundone"
 				return "rundone"
 			end
@@ -43,6 +45,29 @@ module SqajobHelper
 
 	def current_sqajob
 		@current_sqajob = Sqajob.find_by(id: params[:id])
+	end
+
+	def current_sqajob_for_stop
+		@current_sqajob_for_stop = Sqajob.find_by(id: "1")
+	end
+
+	def stop_sqajob
+#		Sqajob.find(params[:sqajobstatus][:sqajob_id])
+#		respond_to @sqajob do |format|
+#			format.html { redirect_to @sqajob }
+#			format.js
+#		end
+#		@sqajob.updatejobstate("stopped")
+#		@sqajob.save
+		return "#"
+	end
+
+	def check_log
+		return "#"
+	end
+
+	def get_result
+		return "#"
 	end
 
 end
