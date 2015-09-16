@@ -33,7 +33,7 @@ class SqajobsController < ApplicationController
 
 	def destroy
 		@sqajob.destroy
-		redirect_to root_url
+		redirect_to sqajobs_path
 	end
 
 

@@ -1,4 +1,5 @@
 <%= form_for(Sqajobstatus.find_by(sqajob_id: @sqajob.id),
 html: { method: :delete }, remote: true) do |f| %>
+	<div><%= f.hidden_field :sqajob_id %></div>
 	<%= f.submit "Stop", class: "btn btn-large btn-danger" %>
 <% end %>

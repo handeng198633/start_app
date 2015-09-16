@@ -5,6 +5,8 @@ class SqajobstatusesController < ApplicationController
 		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
 		@sqajobstatus = @sqajob.sqajobstatuses.build(sqajobstatus_params)
 		if @sqajobstatus.save
+
+#run sqajob
 			respond_to do |format|
 				format.html { redirect_to @sqajob }
 				format.js
@@ -15,13 +17,23 @@ class SqajobstatusesController < ApplicationController
 	end
 
 	def destroy
-		@sqajob = Sqajob.find(params[:id])
+		@sqajobstatus = Sqajobstatus.find_by(id: params[:id])
+		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
+#		@sqajobstatus.destroy
 		respond_to do |format|
 			format.html { redirect_to @sqajob }
 			format.js
 		end
 		@sqajob.updatejobstate("stopped")
 		@sqajob.save
+	end
+
+	def update
+		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
+		respond_to do |format|
+			format.html { redirect_to @sqajob }
+			format.js
+		end
 	end
 
 	def sqajobstatus_params

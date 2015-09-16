@@ -44,11 +44,14 @@ module SqajobHelper
 	end
 
 	def current_sqajob
-		@current_sqajob = Sqajob.find_by(id: params[:id])
-	end
-
-	def current_sqajob_for_stop
-		@current_sqajob_for_stop = Sqajob.find_by(id: "1")
+		if params[:sqajobstatus]
+			 @current_sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
+		elsif params[:id]
+ 			@current_sqajob = Sqajob.find_by(id: params[:id])
+#		if @current_sqajob.id
+#			@sqajobstatus = Sqajobstatus.find_by(id: params[:id])
+#			@current_sqajob = Sqajob.find_by(id: @sqajobstatus.sqajob_id)
+		end
 	end
 
 	def stop_sqajob

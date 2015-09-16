@@ -23,7 +23,7 @@
 	</aside>
 	<aside class = "span3/2">
 			<div id="logsqajob_form">
-				<% if running?(@sqajob) == "notrun" %>
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
 						<%= render 'sqajobdisablelog' %>
 				<% else %>
 						<%= render 'sqajoblog' %>
@@ -41,12 +41,20 @@
 			</div>
 	</aside>
 
+	<aside class = "span3/2">
+			<%= link_to "Delete", @sqajob, method: :delete, data: { confirm: "You Sure?" }, class: "btn btn-large btn-warning" %>
+	</aside>
+
 	<aside class = "span1">
-			<%= link_to "Del", @sqajob, method: :delete, data: { confirm: "You Sure?" }, class: "btn btn-large btn-warning" %>
+			<%= link_to "Back", sqajobs_path, class: "btn btn-large btn-primary" %>
 	</aside>
 </div>
 <div class = "row">
 	<aside class = "span10 offset1">
-			<%= render 'run_sqajob_detail' %>
+		<div id = "run_sqajob_detail_log" >
+			<% if running?(@sqajob) == "running" %>
+				<%= render 'run_sqajob_detail_log' %>
+			<% end %>
+		</div>
 	</aside>
 </div>

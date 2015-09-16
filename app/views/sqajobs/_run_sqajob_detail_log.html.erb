@@ -1,0 +1,6 @@
+<h4><%= @sqajob.jobname %></h4>
+<% File.open("#{Rails.root}/public/casegroup.txt", "r") do |file| %>
+	<% while line = file.gets %>
+		<h4><%= line.html_safe %></h4>
+	<% end %>
+<% end %>
