@@ -1,0 +1,32 @@
+<div class = "row">
+	<aside class = "span3/2 offset5">
+			<div id="logsqajob_form">
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+						<%= render 'sqajobdisablelog' %>
+				<% else %>
+						<%= render 'sqajoblog' %>
+				<% end %>
+			</div>
+	</aside>
+
+	<aside class = "span3/2">
+			<div id="resultsqajob_form">
+				<% if running?(@sqajob) == "rundone" %>
+						<%= render 'sqajobresult' %>
+				<% else %>
+						<%= render 'sqajobdisableresult' %>
+				<% end %>
+			</div>
+	</aside>
+
+	<aside class = "span1">
+			<%= link_to "Back", sqajobs_path, class: "btn btn-large btn-primary" %>
+	</aside>
+</div>
+<div class = "row">
+	<aside class = "span10 offset1">
+		<div id = "run_sqajob_detail_log" >
+
+		</div>
+	</aside>
+</div>

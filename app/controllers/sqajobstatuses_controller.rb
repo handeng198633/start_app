@@ -1,5 +1,5 @@
 class SqajobstatusesController < ApplicationController
-	before_action :signed_in_user
+	before_action :signed_in_user, only: [:create, :destroy, :update]
 
 	def create
 		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
@@ -19,7 +19,7 @@ class SqajobstatusesController < ApplicationController
 	def destroy
 		@sqajobstatus = Sqajobstatus.find_by(id: params[:id])
 		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
-#		@sqajobstatus.destroy
+		@sqajobstatus.destroy
 		respond_to do |format|
 			format.html { redirect_to @sqajob }
 			format.js
@@ -39,4 +39,5 @@ class SqajobstatusesController < ApplicationController
 	def sqajobstatus_params
 		params.require(:sqajobstatus).permit(:sqajob_id)
 	end
+
 end

@@ -41,6 +41,10 @@ class UsersController < ApplicationController
   	else
   		render 'new'
   	end
+    if @user.id == 1
+      @user.update_attribute(:admin, true)
+      @user.save
+    end
   end
 
   def destroy

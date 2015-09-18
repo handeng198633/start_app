@@ -1,10 +1,35 @@
 <li>
-	<%= gravatar_for sqajob.user, size: 52 %>
-	<%= link_to sqajob.user.name, sqajob.user %>
-	<span class="content">
-	<h9>Job Name:</h9>
-	<%= link_to sqajob.jobname, sqajob %>
-	</span>
+	<div class = "row">
+
+	<aside class = "span3">
+		<%= gravatar_for sqajob.user, size: 52 %>
+		<h14><%= link_to sqajob.user.name, sqajob.user %></h14>
+	</aside>
+	<aside class = "span3">
+		<h9>Job Name:</h9>
+		<span class="content">
+		<%= link_to sqajob.jobname, sqajob %>
+		</span>
+	</aside>
+	<aside class = "span4">
+		<h9>Case Group:</h9>
+		<span class="content">
+		<h14><%= sqajob.case_group.join(" | ").html_safe %></h14>
+		</span>
+	</aside>
+	<aside class = "span2">
+		<h9>Status:</h9>
+		<span class="content">
+		<% if sqajob.job_state == "notrun" || sqajob.job_state == "waiting" %>
+		<h11><%= sqajob.job_state %></h11>
+		<% elsif sqajob.job_state == "running" || sqajob.job_state == "rundone" %>
+		<h13><%= sqajob.job_state %></h13>
+		<% elsif sqajob.job_state == "stopped" %>
+		<h12><%= sqajob.job_state %></h12>
+		<% end %>
+		</span>
+	</aside>
+	</div>
 	<span class="timestamp">
 	Created <%= time_ago_in_words(sqajob.created_at) %> ago.
 	</span>

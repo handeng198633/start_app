@@ -1,9 +1,9 @@
 class SqajobsController < ApplicationController
-	before_action :signed_in_user, only: [:index, :create, :edit, :new, :show]
-	before_action :correct_user, only: [:update, :destroy]
+	before_action :signed_in_user, only: [:index, :create, :update, :new, :show]
+	before_action :admin_user, only: :destroy
 
 	def index
-		@sqajobs = Sqajob.paginate(page: params[:page],:per_page => 10 )
+		@sqajobs = Sqajob.paginate(page: params[:page],:per_page => 6 )
 	end
 
 	def show
@@ -47,5 +47,10 @@ class SqajobsController < ApplicationController
 			@sqajob = current_user.sqajobs.find_by(id: params[:id])
 			redirect_to root_url if @sqajob.nil?
 		end
+
+		def admin_user
+			redirect_to(root_path) unless current_user.admin?
+		end
+
 
 end

@@ -11,7 +11,7 @@ gem 'bootstrap-sass', '2.3.2.0'
 gem 'bcrypt', '3.1.10'
 gem 'bcrypt-ruby', '3.0.1'
 #gem 'bcrypt-ruby'
-
+gem 'delayed_job_active_record'
 gem 'faker', '1.1.2'
 
 gem 'will_paginate'
@@ -33,7 +33,6 @@ gem "ckeditor"
 gem "paperclip"
 
 #use searchkick(elasticsearch) for search bar
-gem "searchkick"
 
 #gem 'sunspot_rails'
 #gem 'sunspot_solr'

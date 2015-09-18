@@ -1,9 +1,9 @@
 <div class = "row">
-	<aside class = "span3/2 offset4">
+	<aside class = "span3/2 offset2">
 			<div id="runsqajob_form">
-				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+				<% if running?(@sqajob) == "notrun" %>
 						<%= render 'sqajobrun' %>
-				<% elsif running?(@sqajob) == "running" %>
+				<% elsif running?(@sqajob) == "running" || running?(@sqajob) == "stopped"%>
 						<%= render 'sqajobrunning' %>
 				<% elsif running?(@sqajob) == "rundone" %>
 						<%= render 'sqajobrun' %>
@@ -52,9 +52,7 @@
 <div class = "row">
 	<aside class = "span10 offset1">
 		<div id = "run_sqajob_detail_log" >
-			<% if running?(@sqajob) == "running" %>
-				<%= render 'run_sqajob_detail_log' %>
-			<% end %>
+
 		</div>
 	</aside>
 </div>

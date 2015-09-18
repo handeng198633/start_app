@@ -1,3 +1,4 @@
+require 'open3'
 class FileValidator < ActiveModel::EachValidator
 	def validate_each(record, attribute, value)
 		unless value =~ /\A\/(nfs|projs00)/i
@@ -51,6 +52,7 @@ class Sqajob < ActiveRecord::Base
 	has_many :sqajobstatuses, dependent: :destroy
 
 	belongs_to :user
+	default_scope -> { order('created_at DESC') }
 
 	serialize :case_group, Array
 	validates :jobname, presence: true, allow_blank: true
@@ -79,6 +81,13 @@ class Sqajob < ActiveRecord::Base
 		update_attribute(:starttime, Time.zone.now)
 	end
 
+	def run!(sqajob)
+		@sqajob = sqajob
+		Open3.popen3('#{Rails.root}/public/test_script.sh')
+	end
 
+	def stop!
+		Open3.popen3('#{Rails.root}/public/stop_test_script.sh')
+	end
 
 end
