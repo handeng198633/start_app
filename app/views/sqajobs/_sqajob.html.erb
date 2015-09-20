@@ -21,9 +21,9 @@
 		<h9>Status:</h9>
 		<span class="content">
 		<% if sqajob.job_state == "notrun" || sqajob.job_state == "waiting" %>
-		<h11><%= sqajob.job_state %></h11>
-		<% elsif sqajob.job_state == "running" || sqajob.job_state == "rundone" %>
 		<h13><%= sqajob.job_state %></h13>
+		<% elsif sqajob.job_state == "running" || sqajob.job_state == "rundone" %>
+		<h11><%= sqajob.job_state %></h11>
 		<% elsif sqajob.job_state == "stopped" %>
 		<h12><%= sqajob.job_state %></h12>
 		<% end %>

@@ -5,10 +5,10 @@
 @import "bootstrap";
 
 .container {
-    width: 1170px;
+    width: 1280px;
 }
 .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
-	width: 1170px;
+	width: 1280px;
 }
 
  .hero-unit {
@@ -133,11 +133,11 @@ font-weight: bold;
 }
 
 h9 {
-font-size: 1.2em;
+font-size: 1.3em;
 letter-spacing: -1px;
 margin-bottom: 3px;
 text-align: center;
-color: $grayLight;
+font-weight: normal;
 }
 
 h10 {
@@ -146,7 +146,7 @@ letter-spacing: -1px;
 margin-bottom: 3px;
 text-align: center;
 font-weight: normal;
-color: $grayLight;
+
 }
 
 h11 {
@@ -180,11 +180,12 @@ font-weight: bold;
 }
 
 h14 {
-font-size: 1.3em;
+font-size: 1.2em;
 letter-spacing: -1px;
 margin-bottom: 3px;
 text-align: center;
 font-weight: normal;
+color: $grayLight;
 }
 
 p {
@@ -230,15 +231,14 @@ padding-top: 5px;
 border-top: 1px solid $grayMediumLight;
 color: $grayLight;
 
-a {
-color: gray;
-
-&:hover {
-color: $grayDarker;
 
 
+a:hover, a:focus {
+    color: #EEE;
 }
-}
+
+
+
 small {
 float: left;
 }
@@ -284,6 +284,10 @@ padding-top: 0;
 span {
 margin-bottom: 3px;
 line-height: 1;
+float: left;
+min-height: 1px;
+margin-left: 30px;
+
 }
 
 
