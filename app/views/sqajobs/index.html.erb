@@ -1,14 +1,39 @@
 <% provide(:title, 'All SqaJobs') %>
 <h1>All Special QA Jobs</h1>
 <div class = "row">
-	<aside class = "span12 offset2">
-		
-
+	<aside class = "span14 offset2">
 		<%= will_paginate %>
 		<div class = "row">
-			<ul class="users">
-				<%= render @sqajobs %>
-			</ul>
+			<div class="table-responsive">
+					<table class="table1 table-striped">
+						<tbody>
+							<tr>
+								<td align=center>
+									<h9>User<h9>
+								</td>
+								
+								<td align=center>
+									<h9>Job Name<h9>
+								</td>
+								
+								<td align=center>
+									<h9>Case Group<h9>
+								</td>
+							
+								<td align=center>
+									<h9>Status<h9>
+								</td>
+								<td align=center>
+									<h9>Creat Time<h9>
+								</td>
+								<td align=center>
+									<h9>Delete<h9>
+								</td>
+							</tr>
+								<%= render @sqajobs %>
+						</tbody>
+					</table>
+			</div>
 		</div>
 		<%= will_paginate %>
 	</aside>

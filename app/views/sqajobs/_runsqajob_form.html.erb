@@ -1,5 +1,5 @@
 <div class = "row">
-	<aside class = "xspan3/2 offset3">
+	<aside class = "span3/2 offset3">
 			<div id="runsqajob_form">
 				<% if running?(@sqajob) == "notrun" %>
 						<%= render 'sqajobrun' %>
@@ -10,7 +10,7 @@
 				<% end %>
 			</div>
 	</aside>
-	<aside class = "xspan3/2">
+	<aside class = "span3/2">
 			<div id="stopsqajob_form">
 				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
 						<%= render 'sqajobdisablestop' %>

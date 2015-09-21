@@ -1,24 +1,20 @@
-<li>
-	<div class = "row">
-
-	<aside class = "span3">
+	<tr>
+	<td>
 		<%= gravatar_for sqajob.user, size: 52 %>
 		<h14><%= link_to sqajob.user.name, sqajob.user %></h14>
-	</aside>
-	<aside class = "span3">
-		<h9>Job Name:</h9>
+	</td>
+	<td>
 		<span class="content">
 		<%= link_to sqajob.jobname, sqajob %>
 		</span>
 	</aside>
-	<aside class = "span4">
-		<h9>Case Group:</h9>
+	</td>
+	<td>
 		<span class="content">
 		<h14><%= sqajob.case_group.join(" | ").html_safe %></h14>
 		</span>
-	</aside>
-	<aside class = "span2">
-		<h9>Status:</h9>
+	</td>
+	<td>
 		<span class="content">
 		<% if sqajob.job_state == "notrun" || sqajob.job_state == "waiting" %>
 		<h13><%= sqajob.job_state %></h13>
@@ -28,12 +24,15 @@
 		<h12><%= sqajob.job_state %></h12>
 		<% end %>
 		</span>
-	</aside>
-	</div>
-	<span class="timestamp">
-	Created <%= time_ago_in_words(sqajob.created_at) %> ago.
-	</span>
-	<% if current_user?(sqajob.user) %>
-		<%= link_to "delete", sqajob, method: :delete, data: { confirm: "You Sure?" }, title: sqajob.jobname %>
-	<% end %>
-</li>
+	</td>
+	<td>
+		<span class="content">
+			<%= sqajob.created_at %>
+		</span>
+	</td>
+	<td>
+		<% if current_user?(sqajob.user) || current_user.id == 1 %>
+			<%= link_to "Delete", sqajob, method: :delete, data: { confirm: "You Sure?" }, title: sqajob.jobname, class: "btn btn-large btn-primary" %>
+		<% end %>
+	</td>
+	</tr>
