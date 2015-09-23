@@ -5,14 +5,19 @@ class SqajobstatusesController < ApplicationController
 		@sqajob = Sqajob.find(params[:sqajobstatus][:sqajob_id])
 		@sqajobstatus = @sqajob.sqajobstatuses.build(sqajobstatus_params)
 		if @sqajobstatus.save
-
-#run sqajob
 			respond_to do |format|
 				format.html { redirect_to @sqajob }
 				format.js
 			end
-			@sqajob.updatejobstate("running")
-			@sqajob.save
+			if is_there_any_sqajob_running?
+				@sqajob.updatejobstate("waiting")
+				@sqajob.save
+				@sqajob.waitrun!(@sqajob)
+			else
+				@sqajob.updatejobstate("running")
+				@sqajob.save
+				@sqajob.run!(@sqajob)
+			end
 		end
 	end
 

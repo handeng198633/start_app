@@ -86,6 +86,10 @@ class Sqajob < ActiveRecord::Base
 		Open3.popen3('#{Rails.root}/public/test_script.sh')
 	end
 
+	def waitrun!(sqajob)
+		@sqajob = sqajob
+		#while to run sqajob script
+	end
 	def stop!
 		Open3.popen3('#{Rails.root}/public/stop_test_script.sh')
 	end

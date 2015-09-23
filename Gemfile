@@ -12,6 +12,7 @@ gem 'bcrypt', '3.1.10'
 gem 'bcrypt-ruby', '3.0.1'
 #gem 'bcrypt-ruby'
 gem 'delayed_job_active_record'
+gem 'daemons'
 gem 'faker', '1.1.2'
 
 gem 'will_paginate'

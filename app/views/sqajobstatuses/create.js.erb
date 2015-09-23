@@ -1,3 +1,7 @@
-$("#runsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobrunning')) %>")
-$("#stopsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobstop')) %>")
-$("#logsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajoblog')) %>")
+<% if is_there_any_sqajob_running? %>
+	$("#runsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobwaiting')) %>")
+<% else %>
+	$("#runsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobrunning')) %>")
+	$("#stopsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobstop')) %>")
+	$("#logsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajoblog')) %>")
+<% end %>

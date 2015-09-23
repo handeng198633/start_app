@@ -65,12 +65,21 @@ module SqajobHelper
 		return "#"
 	end
 
-	def check_log
-		return "#"
+	def check_log(sqajob)
+		@sqajob = sqajob
+		
 	end
 
 	def get_result
 		return "#"
+	end
+
+	def is_there_any_sqajob_running?
+		if Sqajob.where(job_state: 'running').take.nil?
+			return false
+		else
+			return true
+		end
 	end
 
 end
