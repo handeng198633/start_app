@@ -1,7 +1,7 @@
 <div class = "row">
 	<aside class = "span3/2 offset3">
 			<div id="runsqajob_form">
-				<% if running?(@sqajob) == "notrun" %>
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "waiting" %>
 						<%= render 'sqajobrun' %>
 				<% elsif running?(@sqajob) == "running" || running?(@sqajob) == "stopped"%>
 						<%= render 'sqajobrunning' %>
@@ -12,7 +12,7 @@
 	</aside>
 	<aside class = "span3/2">
 			<div id="stopsqajob_form">
-				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" || running?(@sqajob) == "waiting" %>
 						<%= render 'sqajobdisablestop' %>
 				<% elsif running?(@sqajob) == "running" %>
 						<%= render 'sqajobstop' %>
@@ -23,7 +23,7 @@
 	</aside>
 	<aside class = "span3/2">
 			<div id="logsqajob_form">
-				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" %>
+				<% if running?(@sqajob) == "notrun" || running?(@sqajob) == "stopped" || running?(@sqajob) == "waiting" %>
 						<%= render 'sqajobdisablelog' %>
 				<% else %>
 						<%= render 'sqajoblog' %>

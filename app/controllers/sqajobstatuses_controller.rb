@@ -9,14 +9,13 @@ class SqajobstatusesController < ApplicationController
 				format.html { redirect_to @sqajob }
 				format.js
 			end
-			if is_there_any_sqajob_running?
-				@sqajob.updatejobstate("waiting")
-				@sqajob.save
-				@sqajob.waitrun!(@sqajob)
-			else
+			if Sqajob.where(job_state: 'running').take.nil?
 				@sqajob.updatejobstate("running")
 				@sqajob.save
 				@sqajob.run!(@sqajob)
+			else
+				@sqajob.updatejobstate("waiting")
+				@sqajob.save
 			end
 		end
 	end
