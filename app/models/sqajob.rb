@@ -96,6 +96,8 @@ class Sqajob < ActiveRecord::Base
 		@sqajob.run!(@sqajob)
 	end
 
+	handle_asynchronously :run!
+
 	def stop!
 		Open3.popen3('#{Rails.root}/public/stop_test_script.sh')
 	end
