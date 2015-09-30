@@ -50,6 +50,7 @@ end
 
 class Sqajob < ActiveRecord::Base
 	has_many :sqajobstatuses, dependent: :destroy
+	has_one :joblog, dependent: :destroy
 
 	belongs_to :user
 	default_scope -> { order('created_at DESC') }
@@ -95,8 +96,6 @@ class Sqajob < ActiveRecord::Base
 		@sqajob.save
 		@sqajob.run!(@sqajob)
 	end
-
-	handle_asynchronously :run!
 
 	def stop!
 		Open3.popen3('#{Rails.root}/public/stop_test_script.sh')

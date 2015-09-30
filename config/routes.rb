@@ -10,6 +10,7 @@ StartApp::Application.routes.draw do
 
   resources :sqajobs
   resources :sqajobstatuses
+  resources :joblogs
 
   resources :articles
 

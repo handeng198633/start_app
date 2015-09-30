@@ -10,12 +10,16 @@ module SqajobHelper
 			@sqajob = sqajob
 			if @sqajob.job_state == "notrun"
 				return "notrun"
+			elsif @sqajob.job_state == "waiting"
+				return "waiting"
 			elsif @sqajob.job_state == "running"
 				return "running"
 			elsif @sqajob.job_state == "stopped"
 				return "stopped"
 			elsif @sqajob.job_state == "rundone"
 				return "rundone"
+			elsif @sqajob.job_state == "timeout"
+				return "timeout"
 			end
 	end
 

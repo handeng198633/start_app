@@ -31,8 +31,18 @@
 		</span>
 	</td>
 	<td>
+		<% if running?(sqajob) == "notrun" || running?(sqajob) == "stopped" || running?(sqajob) == "waiting" %>
+			<%= link_to "Log", "#", class: "btn btn-large btn-default disabled" %>	
+		<% else %>
+			<%= link_to "Log", joblog_path(sqajob.id), class: "btn btn-large btn-primary" %>
+		<% end %>
+		<% if running?(sqajob) == "rundone" %>
+			<%= link_to "Result", "#", class: "btn btn-large btn-primary" %>
+		<% else %>
+			<%= link_to "Result", "#", class: "btn btn-large btn-default disabled" %>
+		<% end %>
 		<% if current_user?(sqajob.user) || current_user.id == 1 %>
-			<%= link_to "Delete", sqajob, method: :delete, data: { confirm: "You Sure?" }, title: sqajob.jobname, class: "btn btn-large btn-primary" %>
+			<%= link_to "Del", sqajob, method: :delete, data: { confirm: "You Sure?" }, title: sqajob.jobname, class: "btn btn-large btn-primary" %>
 		<% end %>
 	</td>
 	</tr>
