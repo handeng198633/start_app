@@ -19,6 +19,11 @@ module StartApp
     config.autoload_paths += %W(#{config.root}/app/models/ckeditor)
     config.assets.precompile += Ckeditor.assets
     config.assets.precompile += %w(ckeditor/*)
+    # Be sure to have the adapter's gem in your Gemfile and follow
+    # the adapter's specific installation and deployment instructions.
+    config.active_job.queue_adapter = :delayed_job
+    config.active_job.queue_name_prefix = Rails.env
+    config.active_job.queue_name_delimiter = '.'
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

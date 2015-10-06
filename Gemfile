@@ -2,15 +2,16 @@ source 'http://rubygems.org'
 
 ruby '2.1.5'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
+gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 
-gem 'bootstrap-sass', '2.3.2.0'
+gem 'bootstrap-sass', '3.3.5'
 #hash function for password
 #gem 'bcrypt-ruby', '3.0.1'
 gem 'bcrypt', '3.1.10'
 gem 'bcrypt-ruby', '3.0.1'
 #gem 'bcrypt-ruby'
+gem 'activejob'
 gem 'delayed_job_active_record'
 gem 'delayed_job'
 gem 'daemons', '1.2.3'
@@ -18,7 +19,7 @@ gem 'daemons', '1.2.3'
 gem 'faker', '1.1.2'
 
 gem 'will_paginate'
-gem 'bootstrap-will_paginate', '0.0.9'
+gem 'bootstrap-will_paginate', '0.0.10'
 
 group :development, :test do
 	gem 'sqlite3', '1.3.10'
@@ -54,7 +55,7 @@ gem 'coffee-script-source', '1.8.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails', '2.2.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks', '1.1.1'
+gem 'turbolinks', '2.5.3'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -72,7 +73,7 @@ group :production do
 end
 
 gem 'execjs'
-
+gem 'tzinfo-data'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

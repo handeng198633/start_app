@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require bootstrap
-//= require bootstrap-carousel.js
 //= require turbolinks
 //= require ckeditor/init
 //= require_tree .

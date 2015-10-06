@@ -85,13 +85,14 @@ class Sqajob < ActiveRecord::Base
 	def run!(sqajob)
 		@sqajob = sqajob
 	end
+#   handle_asynchronously :run!, :queue => 'sqajob_queue'
 
 	def waitrun!(sqajob)
 		@sqajob = sqajob
 		#while to run sqajob script
-		while not Sqajob.where(job_state: 'running').take.nil? do
-			sleep 60
-		end
+#		while not Sqajob.where(job_state: 'running').take.nil? do
+#			sleep 60
+#		end
 		@sqajob.updatejobstate("running")
 		@sqajob.save
 		@sqajob.run!(@sqajob)
