@@ -84,6 +84,8 @@ class Sqajob < ActiveRecord::Base
 
 	def run!(sqajob)
 		@sqajob = sqajob
+		#use activejob to perform sqajob, after this make this job to backend queue
+		RunSqajobJob.perform_later(@sqajob)
 	end
 #   handle_asynchronously :run!, :queue => 'sqajob_queue'
 
