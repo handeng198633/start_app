@@ -30,6 +30,7 @@ class SqajobstatusesController < ApplicationController
 		end
 		@sqajob.updatejobstate("stopped")
 		@sqajob.save
+		@sqajob.stop!(@sqajob)
 	end
 
 	def update

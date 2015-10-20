@@ -77,4 +77,5 @@ StartApp::Application.configure do
   #config.active_record.dump_schema_after_migration = false
 
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  ActiveModel::SecurePassword.min_cost = true
 end

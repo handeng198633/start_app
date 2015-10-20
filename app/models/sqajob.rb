@@ -89,19 +89,12 @@ class Sqajob < ActiveRecord::Base
 	end
 #   handle_asynchronously :run!, :queue => 'sqajob_queue'
 
-	def waitrun!(sqajob)
-		@sqajob = sqajob
-		#while to run sqajob script
-#		while not Sqajob.where(job_state: 'running').take.nil? do
-#			sleep 60
-#		end
-		@sqajob.updatejobstate("running")
-		@sqajob.save
-		@sqajob.run!(@sqajob)
-	end
-
-	def stop!
+	def stop!(sqajob)
 		Open3.popen3('#{Rails.root}/public/stop_test_script.sh')
+		@sqajob = sqajob
+        #Open3.popen3("ps -ef | grep /nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/bin/build_CMD | awk \'{print $2}\' | xargs kill -9 ")
+        #sleep 5
+        #Open3.popen3("ps -ef | grep /nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/JOBS/#{@sqajob.jobname} | awk \'{print $2}\' | xargs kill -9 ")
 	end
 
 end

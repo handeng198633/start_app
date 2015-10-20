@@ -38,4 +38,5 @@ StartApp::Application.configure do
   # config.action_view.raise_on_missing_translations = true
 
   config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  ActiveModel::SecurePassword.min_cost = true
 end
