@@ -1,6 +1,12 @@
-<h4><%= @sqajob.jobname %></h4>
-<% File.open("#{Rails.root}/public/casegroup.txt", "r") do |file| %>
+<% require 'coderay' %>
+<% File.open("#{Rails.root}/public/output.txt", "r") do |file| %>
 	<% while line = file.gets %>
-		<h4><%= line.html_safe %></h4>
+		<% if not line =~ /^$/ %>
+			<% line = log2html_before(line) %>
+			<% line = CodeRay.scan("#{line}", :ruby).div %>
+			<% line = log2html_after(line) %>						
+			<%= line.html_safe %>
+		<% end %>
 	<% end %>
 <% end %>
+

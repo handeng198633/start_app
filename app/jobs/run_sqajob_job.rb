@@ -31,8 +31,7 @@ class RunSqajobJob < ActiveJob::Base
 
     @sqajob.updatejobstate('running')
 
-    Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/bin/build_CMD -n ' + @sqajob.jobname + ' -v ' + @sqajob.nversion + ' -a ' + @sqajob.gversion + ' -g ' + @sqajob.case_group.join(",") + ' -s ' + @sqajob.sl
-otthread.to_s + ' -b ' + @sqajob.nbuild + ' -c ' + @sqajob.gbuild)
+#   Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/bin/build_CMD -n ' + @sqajob.jobname + ' -v ' + @sqajob.nversion + ' -a ' + @sqajob.gversion + ' -g ' + @sqajob.case_group.join(",") + ' -s ' + @sqajob.slotthread.to_s + ' -b ' + @sqajob.nbuild + ' -c ' + @sqajob.gbuild)
     sleep 30
     Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/JOBS/' + @sqajob.jobname)
 

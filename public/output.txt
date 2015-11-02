@@ -1,0 +1,27 @@
+^[[7;32;49m##############^[[0;49m ^[[7;36;49mMultiple-Machine Run starts at 10/26/15 17:35:36^[[0;49m ^[[7;32;49m##############^[[0;49m
+1/3 kjm_static started (rd) (10/26/15 17:35:39, submitted: 10/26/15 17:35:38)
+    WDir: /nfs/sjosqa2.home/qa/unitQA/arena/kjm_static_151026173539_Amd64_17108
+    GroupId: A151027003505_7595 Input: rd
+
+2/3 kjm_pss_dynamic started (rd) (10/26/15 17:35:39, submitted: 10/26/15 17:35:38)
+    WDir: /nfs/sjosqa2.home/qa/unitQA/arena/kjm_pss_dynamic_151026173539_Amd64_17107
+    GroupId: A151027003505_7595 Input: rd
+
+1/3 kjm_static done (^[[7;32;49mPASSED^[[0;49m, 10/26/15 17:37:28-109, GId:A151027003536_769e)
+    /nfs/sjosqa2.home/qa/unitQA/arena/kjm_static_151026173621_Amd64_25108
+
+2/3 kjm_pss_dynamic done (^[[7;32;49mPASSED^[[0;49m, 10/26/15 17:38:20-161, GId:A151027003536_769e)
+    /nfs/sjosqa2.home/qa/unitQA/arena/kjm_pss_dynamic_151026173650_Amd64_32665
+
+3/3 kjm_pss_reload_4 started (rd) (10/26/15 17:38:21, submitted: 10/26/15 17:38:20)
+    WDir: /nfs/sjosqa2.home/qa/unitQA/arena/kjm_pss_reload_4_151026173821_Amd64_18560
+    GroupId: A151027003505_7595 Input: rd
+
+3/3 kjm_pss_reload_4 done (^[[7;32;49mPASSED^[[0;49m, 10/26/15 17:39:57-96, GId:A151027003536_769e)
+    /nfs/sjosqa2.home/qa/unitQA/arena/kjm_pss_reload_4_151026173903_Amd64_23883
+
+############## Multiple-Machine Run is completely done at 10/26/15 17:39:57 - 261 ##############
+LOG: /nfs/sjosqa1.home/qa/unitQA/log/Amd64_151026173536_30256
+
+3/3 passed  (0 interrupted, 0 not-submitted)
+pid: 30250
