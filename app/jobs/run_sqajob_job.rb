@@ -31,17 +31,17 @@ class RunSqajobJob < ActiveJob::Base
 
     @sqajob.updatejobstate('running')
 
-#   Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/bin/build_CMD -n ' + @sqajob.jobname + ' -v ' + @sqajob.nversion + ' -a ' + @sqajob.gversion + ' -g ' + @sqajob.case_group.join(",") + ' -s ' + @sqajob.slotthread.to_s + ' -b ' + @sqajob.nbuild + ' -c ' + @sqajob.gbuild)
-    sleep 30
-    Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/JOBS/' + @sqajob.jobname)
+    #Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/bin/build_CMD -n ' + @sqajob.jobname + ' -v ' + @sqajob.nversion + ' -a ' + @sqajob.gversion + ' -g ' + @sqajob.case_group.join(",") + ' -s ' + @sqajob.slotthread.to_s + ' -b ' + @sqajob.nbuild + ' -c ' + @sqajob.gbuild)
+    #sleep 30
+    #Open3.popen3('/nfs/sjorhqa128-1.data/qa/WEB_BIN/SQA/JOBS/' + @sqajob.jobname)
 
-    while not File.exist?("/data/qa/WEB_BIN/SQA/DONE/#{@sqajob.jobname}") do
-        if Sqajob.where(id: @sqajob.id).take.jobstate == 'stopped'
-            break #also can use Kernel.exit!
-        else
-            sleep 60
-        end
-    end
+    #while not File.exist?("/data/qa/WEB_BIN/SQA/DONE/#{@sqajob.jobname}") do
+    #    if Sqajob.where(id: @sqajob.id).take.jobstate == 'stopped'
+    #        break #also can use Kernel.exit!
+    #    else
+    #        sleep 60
+    #    end
+    #end
 
     if Sqajob.where(id: @sqajob.id).take.jobstate == 'stopped'
            #maybe some operations 

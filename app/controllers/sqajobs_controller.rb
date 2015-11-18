@@ -25,6 +25,7 @@ class SqajobsController < ApplicationController
 		if @sqajob.save
 			flash[:success] = "Special QA job created"
 			redirect_to @sqajob
+			
 		else
 			@feed_items = []
 			render 'new'

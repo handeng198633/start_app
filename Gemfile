@@ -5,7 +5,7 @@ ruby '2.1.5'
 gem 'rails', '4.2.0'
 # Use sqlite3 as the database for Active Record
 
-gem 'bootstrap-sass', '3.3.5'
+gem 'bootstrap-sass', '2.3.2.0'
 #hash function for password
 #gem 'bcrypt-ruby', '3.0.1'
 gem 'bcrypt'

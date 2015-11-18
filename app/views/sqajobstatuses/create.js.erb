@@ -2,6 +2,8 @@
 	$("#runsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobrunning')) %>")
 	$("#stopsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobstop')) %>")
 	$("#logsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajoblog')) %>")
+	$("#show_sqajobstatus").html('<h15>running</h15>')
 <% else %>
 	$("#runsqajob_form").html("<%= escape_javascript(render('sqajobs/sqajobwaiting')) %>")
+	$("#show_sqajobstatus").html('<h17>waiting<h17>')
 <% end %>

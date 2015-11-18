@@ -19,6 +19,32 @@
 		<div class="table-responsive">
 			<table class="table table-striped">
 				<tr>
+                                        <td>
+                                                <h8>Job Name</h8>
+                                        </td>
+                                        <td>
+                                                <h9><%= @sqajob.jobname.html_safe %></h9>
+                                        </td>
+                                </tr>
+                                <tr>
+                                        <td>
+                                                <h8>Status</h8>
+                                        </td>
+                                        <td>
+                                        	<span id= "show_sqajobstatus" class="content">
+											<% if @sqajob.job_state == "notrun" %>
+												<h17>not start</h17>
+											<% elsif @sqajob.job_state == "waiting" %>
+												<h17><%= @sqajob.job_state %></h17>
+											<% elsif @sqajob.job_state == "running" || @sqajob.job_state == "rundone" %>
+											<h15><%= @sqajob.job_state %></h15>
+											<% elsif @sqajob.job_state == "stopped" %>
+											<h16><%= @sqajob.job_state %></h16>
+											<% end %>
+											</span>
+                                        </td>
+                                </tr>
+				<tr>
 					<td>
 						<h7>Test Case Group *</h7>
 					</td>

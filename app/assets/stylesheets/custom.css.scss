@@ -196,6 +196,27 @@ font-weight: normal;
 color: $grayLight;
 }
 
+h15 {
+font-size: 1.8em;
+text-align: center;
+color: #51A351;
+font-weight: bold;
+}
+
+h16 {
+font-size: 1.8em;
+text-align: center;
+color: #BD362F;
+font-weight: bold;
+}
+
+h17 {
+font-size: 1.8em;
+text-align: center;
+color: #04C;
+font-weight: bold;
+}
+
 p {
 font-size: 1.1em;
 line-height: 1.7em;
@@ -404,7 +425,7 @@ border-top: 1px solid #e8e8e8;
 }
 .content {
 display: block;
-height: 50px;
+height: 20px;
 }
 .userprofile {
 color: $LightBlue;
